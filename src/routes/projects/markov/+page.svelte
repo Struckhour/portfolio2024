@@ -6,14 +6,11 @@
 
     let showText = false;
 
-    function onKeyDown(e : KeyboardEvent) {
-        if (e.key == "Enter") {
-            showText = !showText;
-        }
-    }
 </script>
 
-<div class="max-w-2xl mx-auto mt-12 p-2 text-xl">
+<div class="max-w-2xl mx-auto mt-6 p-2 text-xl">
+    <h1 class="text-center text-2xl">Markov Analysis of Birdsong</h1>
+    <br>
     For my honours research in 2020, I explored how birds order their songs into complex sequences.
     This involved generating thousands of computer simulations of song sequences and comparing those simulations to real bird recordings. 
     <br>
@@ -37,10 +34,10 @@
     2-second song is actually slightly different songs being ordered into complex sequences (like words being ordered into sentences).
     It cycles through its 10-15 songs and chooses the next one based on what it has previously sung.
     For example, it almost never sings the same song twice in a row.
-    The question I set out to answer was quite simple---even if complicated in the solving:
+    The question I set out to answer was quite simple:
     </p>
     <br>
-    <div class="text-center tracking-wider w-[90%] m-auto"><b>How many previous songs influence the upcoming song choice of a hermit thrush? In other words, does a bird care what it just said?</b>
+    <div class="text-center tracking-wider w-[90%] m-auto"><b>How many previous songs influence the upcoming song choice of a hermit thrush? In other words, does a bird care what it recently sang?</b>
     </div>
     
     <br>
@@ -51,7 +48,7 @@
         What if I know the most recent two songs? Three songs, etc.?
     </p>
     <br>
-    <p>First, I recorded <b><i>a lot</i></b> of hermit thrush song. After selecting and identifying all the hundreds of songs that were sung (with some help), 
+    <p>First, I recorded <b><i>a lot</i></b> of hermit thrush song. After selecting and identifying each individual song (with help), 
         I looked at the transitions from one song to the next and and asked if the upcoming song differs depending on what was recently sung.
         For example, maybe every time a bird sings song D it follows with either song G or song C. </p>
     <br>
@@ -86,8 +83,9 @@
         It was! This suggests that a bird remembers what it sang at least 20 seconds ago and uses that knowledge to decide what to sing next.
         However, I found that knowing up to the two previous songs provided the largest gains in predictive accuracy. 
         Knowing three and four previous songs offered diminishing returns. This suggests that the bird is much more concerned with its most recent singing.
-        But what is it saying? Why is it mixing the songs up? That is what I am exploring in my <a href="triangulation" class="underline">master's research</a>!
+        Why? What are they saying? Who are they singing to? That is what I am exploring in my <a href="triangulation" class="underline">master's research</a>!
     </p>
 </div>
 {/if}
+<div class="h-64"></div>
 
