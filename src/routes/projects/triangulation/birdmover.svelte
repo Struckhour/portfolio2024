@@ -1,10 +1,12 @@
 <script lang="ts">
     import microphone from '$lib/microphone.jpg';
     import birdPic from '$lib/bird.png';
-    import {onMount,onDestroy} from "svelte"
+    import {onMount,onDestroy} from "svelte";
+    import trees from '$lib/trees.jpg';
     
     // let counter = 0;
     let interval: number;
+    let clockInterval: number;
     let latestBirdX = 25;
     let latestBirdY = 25;
     const micPositions: {[mic: string]: {[dimension: string]: number}} = {
@@ -16,19 +18,61 @@
     let litB = false;
     let litC = false;
     let litD = false;
-
+    let timeA = '';
+    let timeB = '';
+    let timeC = '';
+    let timeD = '';
     
+    function formatTime(date: Date) {
+        const hh = date.getHours() % 12;
+        let mm = date.getMinutes().toString();
+        let ss = date.getSeconds().toString();
+        const ml = date.getMilliseconds().toString()
+        if (mm.length < 2) {
+            mm = '0' + mm;
+        }
+        if (ss.length < 2) {
+            ss = '0' + ss;
+        }
+        return `${hh}:${mm}:${ss}.${ml[0]}`
+    }
+
+    function resetMics() {
+        timeA = '';
+        timeB = '';
+        timeC = '';
+        timeD = '';
+    }
+
     function resetInterval()
     {
+        resetMics();
+        litA = false;
+        litB = false;
+        litC = false;
+        litD = false;
+        let soundCircle = document.getElementById('soundCircle');
+            if (!soundCircle) {
+                return;
+            }
+        soundCircle.style.left = `${latestBirdX}%`;
+        soundCircle.style.top = `${latestBirdY}%`;
+        currentOrigin = {x: latestBirdX, y: latestBirdY};
+        setTimeout(()=> {
+            clearInterval(interval);
+            let soundCircle = document.getElementById('soundCircle');
+            if (!soundCircle) {
+                return;
+            }
+            pingWidth = 1;
+            pingHeight = 1;
+            soundCircle.style.width = `${pingWidth}%`;
+            soundCircle.style.height = `${pingHeight}%`;
+
+            
+        }, 4000)
     	clearInterval(interval);
     	interval = setInterval(()=>{
-            now = new Date();
-            const hh = now.getHours();
-            const mm = now.getMinutes();
-            const ss = now.getSeconds();
-            const ml = now.getMilliseconds().toFixed(1)
-            if (inBox) currentTimestamp = `${hh}:${mm}:${ss}.${ml[0]}`;
-
             let soundCircle = document.getElementById('soundCircle');
             if (!soundCircle) {
                 lastTweet = 100;
@@ -45,31 +89,30 @@
                 const distToC = getDistance(micPositions.C, currentOrigin);
                 const distToD = getDistance(micPositions.D, currentOrigin);
 
-                if (distToA < pingWidth / 2) {
+                if ((distToA < pingWidth / 2) && !litA) {
                     litA = true;
+                    timeA = formatTime(new Date())
                 }
-                if (distToB < pingWidth / 2) {
+                if (distToB < pingWidth / 2 && !litB) {
                     litB = true;
+                    timeB = formatTime(new Date());
                 }
-                if (distToC < pingWidth / 2) {
+                if (distToC < pingWidth / 2 && !litC) {
                     litC = true;
+                    timeC = formatTime(new Date())
                 }
-                if (distToD < pingWidth / 2) {
+                if (distToD < pingWidth / 2 && !litD) {
                     litD = true;
+                    timeD = formatTime(new Date())
                 }
                 
                 lastFrame = Date.now();
-
-                if (pingWidth >  220) {
-                    soundCircle.style.left = `${latestBirdX}%`;
-                    soundCircle.style.top = `${latestBirdY}%`;
-                    currentOrigin = {x: latestBirdX, y: latestBirdY};
+                //reset ping
+                if (litA && litB && litC && litD) {
                     pingWidth = 1;
                     pingHeight = 1;
-                    litA = false;
-                    litB = false;
-                    litC = false;
-                    litD = false;
+                    soundCircle.style.width = `${pingWidth}%`;
+                    soundCircle.style.height = `${pingHeight}%`;
                 }
             }        
 
@@ -77,17 +120,22 @@
     }
     
     onMount(()=>{
-    	resetInterval();
+    	resetClock();
     });
     
     onDestroy(()=>{
     	clearInterval(interval);
+        clearInterval(clockInterval);
     });
     
-
+    function resetClock() {
+        clockInterval = setInterval(() => {
+        currentTimestamp = formatTime(new Date());
+        }, 10)
+    }
     let now = new Date();
     // get the current date and time as a string
-    let currentTimestamp = now.toLocaleString();
+    let currentTimestamp = formatTime(now);
 
     let inBox = false;
 
@@ -101,10 +149,11 @@
     }, 1000)
 
 
-
+    let birdGrabbed = false;
 
     let m = { x: 0, y: 0 };
-    function handleMousemove(event: MouseEvent) {
+    function moveBird(event: MouseEvent) {
+        if (!birdGrabbed) return;
         let boxCoords = getMouseOnBox(event, 'forest');
         if (boxCoords === undefined) return;
         if (boxCoords.x > 100 || boxCoords.x < 0 || boxCoords.y > 100 || boxCoords.y < 0) {
@@ -140,9 +189,13 @@
 
     function updateBirdPosition(x: number, y: number) {
         let bird = document.getElementById("bird");
+        let birdVeil = document.getElementById("birdVeil");
         if (!bird) return;
+        if (!birdVeil) return;
         latestBirdX = x;
         latestBirdY = y;
+        birdVeil.style.left = `${x}%`;
+        birdVeil.style.top = `${y}%`;
         bird.style.left = `${x}%`;
         bird.style.top = `${y}%`;
     }
@@ -158,37 +211,47 @@
         const dist = ((soundOrigin.x - micPos.x)**2 + (soundOrigin.y - micPos.y)**2)**.5
         return dist;
     }
+    function handleClick() {
+        resetInterval();
+    }
+    let instruct = true;
 
 </script>
 
-<div role="alert" id="forest" on:mousemove={handleMousemove} class="relative border border-green-600 w-96 h-96 mx-auto cursor-none">
+<button on:click={handleClick} class="block mx-auto border border-slate-500 text-xl rounded-xl p-2 m-1 bg-slate-200 z-50">Sing</button>
+<div on:mousemove={moveBird} role="alert" id="forest" class="relative w-[30rem] h-[30rem] mx-auto mb-4">
+    <img id="trees" alt="some sketched trees" src={trees} class="object-cover w-[30rem] h-[30rem] opacity-50 pointer-events-none">
     <!-- bird -->
-    <img id="bird" alt="a bird" src={birdPic} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-20"/>
+    <img id="bird" alt="a bird" src={birdPic} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none"/>
+    <div id="birdVeil" on:mousedown={() => {birdGrabbed = true; instruct = false}} on:mouseup={() => birdGrabbed = false} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-30 cursor-pointer"></div>
     <!-- sound circle -->
     <div id="soundCircle" class="absolute border border-black rounded-full top-1/4 z-10 -translate-y-2/4 left-1/4 -translate-x-2/4"></div>
 
     <!-- microphones -->
     <img id="micA" alt="microphone A" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-2/4 top-[15%] -translate-y-2/4 -translate-x-2/4"/>
-    <div class="absolute h-[10%] z-0 left-2/4 top-[10%] -translate-y-2/4 -translate-x-2/4">Mic A: </div>
+    <div class="absolute z-0 left-2/4 top-[8%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeA}</div>
     {#if litA}
     <div class="absolute border-2 border-red-500 rounded-full w-[10%] h-[10%] left-2/4 top-[15%] -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
     <img id="micB" alt="microphone B" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-[85%] top-2/4  -translate-y-2/4 -translate-x-2/4"/>
-    <div class="absolute h-[10%] z-0 left-[85%] top-[45%] -translate-y-2/4 -translate-x-2/4">Mic B: </div>
+    <div class="absolute z-0 left-[85%] top-[42%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeB}</div>
     {#if litB}
     <div class="absolute border-2 border-green-500 rounded-full w-[10%] h-[10%] left-[85%] top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
     <img id="micC" alt="microphone C" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4"/>
-    <div class="absolute h-[10%] z-0 left-2/4 top-[45%] -translate-y-2/4 -translate-x-2/4">Mic C: </div>
+    <div class="absolute z-0 left-2/4 top-[42%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeC}</div>
     {#if litC}
     <div class="absolute border-2 border-blue-500 rounded-full w-[10%] h-[10%] left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
     <img id="micD" alt="microphone D" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"/>
-    <div class="absolute h-[10%] z-0 left-1/4 top-[70%] -translate-y-2/4 -translate-x-2/4">Mic D: </div>
+    <div class="absolute z-0 left-1/4 top-[65%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeD}</div>
     {#if litD}
     <div class="absolute border-2 border-purple-500 rounded-full w-[10%] h-[10%] left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
-</div>
-<div class="w-96 mx-auto mb-4">
-    <div>Time: {currentTimestamp}</div>
+    {#if instruct}
+    <div class="absolute w-[40%] h-[20%] top-[2%] left-[-10px] -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none">Drag bird to move around!</div>
+    {/if}
+    <div class="absolute top-[93%] w-24 left-2/4 -translate-x-2/4 px-2 py-1 bg-white text-xl z-50">
+        <div>{currentTimestamp}</div>
+    </div>
 </div>

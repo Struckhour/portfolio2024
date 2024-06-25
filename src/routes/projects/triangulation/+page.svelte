@@ -4,11 +4,7 @@
     import Birdmover from './birdmover.svelte';
     let showText = true;
 
-    function onKeyDown(e : KeyboardEvent) {
-        if (e.key == "Enter") {
-            showText = !showText;
-        }
-    }
+
 </script>
 
 <div class="max-w-2xl mx-auto mt-6 p-2 text-xl">
@@ -24,7 +20,7 @@
 <div class="h-6"></div>
 
 <button type="button" on:click={() => (showText = !showText)} class="block max-w-2xl mx-auto mt-4 p-2 text-xl underline text-center rounded-lg">
-    <img alt="a hermit thrush." src={hermit} class="w-48 h-48 m-auto rounded-full object-cover"/>
+    
     <div class={showText?"text-slate-500":"text-black"}>{showText?'Read less' : 'Read more'}</div>
 </button>
 {#if showText}
@@ -33,9 +29,9 @@
     <p>The idea of triangulating a sound source is old and relatively simple, but the implementation can be very complicated. To get a sense of the math, move the singing bird around in the forest picture below. Watch how the timing of its song hitting each recorder changes based on where it is in the forest. Each location in the forest has a unique set of timings across the recorders!
     </p>
     <br>
-    INTERACTIVE IMAGE HERE
+
     <Birdmover/>
-    <div class="text-center tracking-wider w-[90%] m-auto"><b>What this means is that we can work the equation backward. If we know the timing of its song on each recorder, we can calculate its position in the forest!</b>
+    <div class="text-center tracking-wider w-[90%] m-auto"><b>What this means is that if we know the timing of a given song on each recorder, we can calculate the bird's position in the forest!</b>
     </div>
     
     <br>
