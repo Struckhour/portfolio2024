@@ -58,19 +58,7 @@
         soundCircle.style.left = `${latestBirdX}%`;
         soundCircle.style.top = `${latestBirdY}%`;
         currentOrigin = {x: latestBirdX, y: latestBirdY};
-        setTimeout(()=> {
-            clearInterval(interval);
-            let soundCircle = document.getElementById('soundCircle');
-            if (!soundCircle) {
-                return;
-            }
-            pingWidth = 1;
-            pingHeight = 1;
-            soundCircle.style.width = `${pingWidth}%`;
-            soundCircle.style.height = `${pingHeight}%`;
 
-            
-        }, 4000)
     	clearInterval(interval);
     	interval = setInterval(()=>{
             let soundCircle = document.getElementById('soundCircle');
@@ -109,8 +97,8 @@
                 lastFrame = Date.now();
                 //reset ping
                 if (litA && litB && litC && litD) {
-                    pingWidth = 1;
-                    pingHeight = 1;
+                    pingWidth = 0;
+                    pingHeight = 0;
                     soundCircle.style.width = `${pingWidth}%`;
                     soundCircle.style.height = `${pingHeight}%`;
                 }
