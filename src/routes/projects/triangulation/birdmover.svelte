@@ -3,6 +3,14 @@
     import birdPic from '$lib/bird.png';
     import {onMount,onDestroy} from "svelte";
     import trees from '$lib/trees.jpg';
+	import { fade, fly } from 'svelte/transition';
+    import { crossfade } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+
+	const [send, receive] = crossfade({
+		duration: 1500,
+		easing: quintOut
+	});
     
     // let counter = 0;
     let interval: number;
@@ -22,6 +30,10 @@
     let timeB = '';
     let timeC = '';
     let timeD = '';
+    let timeAms = 0;
+    let timeBms = 0;
+    let timeCms = 0;
+    let timeDms = 0;
     
     function formatTime(date: Date) {
         const hh = date.getHours() % 12;
@@ -44,6 +56,14 @@
         timeD = '';
     }
 
+    function turnOffDot(id: string) {
+        let dot = document.getElementById(id);
+        if (!dot) {
+            return;
+        }
+        dot.style.opacity = '0%';
+    }
+
     function resetInterval()
     {
         resetMics();
@@ -58,7 +78,10 @@
         soundCircle.style.left = `${latestBirdX}%`;
         soundCircle.style.top = `${latestBirdY}%`;
         currentOrigin = {x: latestBirdX, y: latestBirdY};
-
+        const songTime = Date.now();
+        for (let dot of ['redbox', 'greenbox', 'bluebox', 'purplebox']) {
+            turnOffDot(dot);
+        }
     	clearInterval(interval);
     	interval = setInterval(()=>{
             let soundCircle = document.getElementById('soundCircle');
@@ -79,19 +102,47 @@
 
                 if ((distToA < pingWidth / 2) && !litA) {
                     litA = true;
-                    timeA = formatTime(new Date())
+                    timeAms = Date.now();
+                    timeA = formatTime(new Date());
+                    let redBox = document.getElementById('redbox');
+                    if (!redBox) {
+                        return;
+                    }
+                    redBox.style.left = `${((timeAms - songTime) / (4000))*100}%`;
+                    redBox.style.opacity = '100%';
                 }
                 if (distToB < pingWidth / 2 && !litB) {
                     litB = true;
+                    timeBms = Date.now()
                     timeB = formatTime(new Date());
+                    let greenBox = document.getElementById('greenbox');
+                    if (!greenBox) {
+                        return;
+                    }
+                    greenBox.style.left = `${((timeBms - songTime) / (4000))*100}%`;
+                    greenBox.style.opacity = '100%';
                 }
                 if (distToC < pingWidth / 2 && !litC) {
                     litC = true;
-                    timeC = formatTime(new Date())
+                    timeCms = Date.now();
+                    timeC = formatTime(new Date());
+                    let blueBox = document.getElementById('bluebox');
+                    if (!blueBox) {
+                        return;
+                    }
+                    blueBox.style.left = `${((timeCms - songTime) / (4000))*100}%`;
+                    blueBox.style.opacity = '100%';
                 }
                 if (distToD < pingWidth / 2 && !litD) {
                     litD = true;
-                    timeD = formatTime(new Date())
+                    timeDms = Date.now();
+                    timeD = formatTime(new Date());
+                    let purpleBox = document.getElementById('purplebox');
+                    if (!purpleBox) {
+                        return;
+                    }
+                    purpleBox.style.left = `${((timeDms - songTime) / (4000))*100}%`;
+                    purpleBox.style.opacity = '100%';
                 }
                 
                 lastFrame = Date.now();
@@ -206,12 +257,13 @@
 
 </script>
 
-<button on:click={handleClick} class="block mx-auto border border-slate-500 text-xl rounded-xl p-2 m-1 bg-slate-200 z-50">Sing</button>
-<div on:mousemove={moveBird} role="alert" id="forest" class="relative w-[30rem] h-[30rem] mx-auto mb-4">
+<button on:click={handleClick} class="relative left-2/4 -translate-x-2/4 border border-slate-500 text-xl rounded-xl p-2 m-1 bg-slate-200 z-50 hover:bg-slate-300 active:bg-slate-100">Sing</button>
+<div on:mousemove={moveBird} role="alert" id="forest" class="relative w-[30rem] h-[30rem] mx-auto border border-black">
     <img id="trees" alt="some sketched trees" src={trees} class="object-cover w-[30rem] h-[30rem] opacity-50 pointer-events-none">
     <!-- bird -->
     <img id="bird" alt="a bird" src={birdPic} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none"/>
-    <div id="birdVeil" on:mousedown={() => {birdGrabbed = true; instruct = false}} on:mouseup={() => birdGrabbed = false} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-30 cursor-pointer"></div>
+    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+    <div id="birdVeil" role="alert" on:mousedown={() => {birdGrabbed = true; instruct = false}} on:mouseup={() => birdGrabbed = false} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-30 cursor-pointer"></div>
     <!-- sound circle -->
     <div id="soundCircle" class="absolute border border-black rounded-full top-1/4 z-10 -translate-y-2/4 left-1/4 -translate-x-2/4"></div>
 
@@ -237,9 +289,34 @@
     <div class="absolute border-2 border-purple-500 rounded-full w-[10%] h-[10%] left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
     {#if instruct}
-    <div class="absolute w-[40%] h-[20%] top-[2%] left-[-10px] -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none">Drag bird to move around!</div>
+    <div class="absolute w-[40%] h-[20%] top-[2%] left-[-10px] -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none -rotate-12">Drag bird to move around!</div>
     {/if}
-    <div class="absolute top-[93%] w-24 left-2/4 -translate-x-2/4 px-2 py-1 bg-white text-xl z-50">
+    <div class="absolute bottom-0 w-24 left-2/4 -translate-x-2/4 px-2 py-1 bg-white text-xl z-50">
         <div>{currentTimestamp}</div>
+    </div>
+</div>
+<div class="relative grid grid-rows-[50%_50%] grid-cols-1 left-2/4 -translate-x-2/4 w-[30rem] h-12 mb-4">
+    <div class="relative">
+        <div class="absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
+        <div class="absolute left-1/4 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
+        <div class="absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
+        <div class="absolute left-3/4 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
+        <div class="absolute right-0 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
+        <div id="redbox" class="bg-red-500 absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4 2 h-4 w-4 rounded-full opacity-0"></div>
+
+        <div id="greenbox" class="bg-green-500 absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4 2 h-4 w-4 rounded-full opacity-0"></div>
+
+        <div id="bluebox" class="bg-blue-500 absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4 2 h-4 w-4 rounded-full opacity-0"></div>
+
+
+        <div id="purplebox" class="bg-purple-500 absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4 2 h-4 w-4 rounded-full opacity-0"></div>
+
+    </div>
+    <div class="relative">
+        <div class="absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4">0s</div>
+        <div class="absolute left-1/4 top-2/4 -translate-y-2/4 -translate-x-2/4">1s</div>
+        <div class="absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4">2s</div>
+        <div class="absolute left-3/4 top-2/4 -translate-y-2/4 -translate-x-2/4">3s</div>
+        <div class="absolute right-0 top-2/4 -translate-y-2/4 -translate-x-2/4">4s</div>
     </div>
 </div>
