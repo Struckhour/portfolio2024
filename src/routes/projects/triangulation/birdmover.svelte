@@ -109,7 +109,7 @@
                         return;
                     }
                     redBox.style.left = `${((timeAms - songTime) / (4000))*100}%`;
-                    redBox.style.opacity = '100%';
+                    redBox.style.opacity = '70%';
                 }
                 if (distToB < pingWidth / 2 && !litB) {
                     litB = true;
@@ -120,7 +120,7 @@
                         return;
                     }
                     greenBox.style.left = `${((timeBms - songTime) / (4000))*100}%`;
-                    greenBox.style.opacity = '100%';
+                    greenBox.style.opacity = '70%';
                 }
                 if (distToC < pingWidth / 2 && !litC) {
                     litC = true;
@@ -131,7 +131,7 @@
                         return;
                     }
                     blueBox.style.left = `${((timeCms - songTime) / (4000))*100}%`;
-                    blueBox.style.opacity = '100%';
+                    blueBox.style.opacity = '70%';
                 }
                 if (distToD < pingWidth / 2 && !litD) {
                     litD = true;
@@ -142,7 +142,7 @@
                         return;
                     }
                     purpleBox.style.left = `${((timeDms - songTime) / (4000))*100}%`;
-                    purpleBox.style.opacity = '100%';
+                    purpleBox.style.opacity = '70%';
                 }
                 
                 lastFrame = Date.now();
@@ -257,8 +257,8 @@
 
 </script>
 
-<button on:click={handleClick} class="relative left-2/4 -translate-x-2/4 border border-slate-500 text-xl rounded-xl p-2 m-1 bg-slate-200 z-50 hover:bg-slate-300 active:bg-slate-100">Sing</button>
-<div on:mousemove={moveBird} role="alert" id="forest" class="relative w-[30rem] h-[30rem] mx-auto border border-black">
+<button on:click={handleClick} class="relative left-2/4 -translate-x-2/4 border border-slate-500 text-xl rounded-xl p-2 m-1 bg-slate-200 z-40 hover:bg-slate-300 active:bg-slate-100">Sing</button>
+<div on:mousemove={moveBird} role="alert" id="forest" class="relative w-[30rem] h-[30rem] mx-auto border border-green-700">
     <img id="trees" alt="some sketched trees" src={trees} class="object-cover w-[30rem] h-[30rem] opacity-50 pointer-events-none">
     <!-- bird -->
     <img id="bird" alt="a bird" src={birdPic} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none"/>
@@ -271,46 +271,41 @@
     <img id="micA" alt="microphone A" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-2/4 top-[15%] -translate-y-2/4 -translate-x-2/4"/>
     <div class="absolute z-0 left-2/4 top-[8%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeA}</div>
     {#if litA}
-    <div class="absolute border-2 border-red-500 rounded-full w-[10%] h-[10%] left-2/4 top-[15%] -translate-y-2/4 -translate-x-2/4"> </div>
+    <div class="absolute border-2 border-orange-500 opacity-70 rounded-full w-[10%] h-[10%] left-2/4 top-[15%] -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
     <img id="micB" alt="microphone B" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-[85%] top-2/4  -translate-y-2/4 -translate-x-2/4"/>
     <div class="absolute z-0 left-[85%] top-[42%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeB}</div>
     {#if litB}
-    <div class="absolute border-2 border-green-500 rounded-full w-[10%] h-[10%] left-[85%] top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
+    <div class="absolute border-2 border-green-500 opacity-70 rounded-full w-[10%] h-[10%] left-[85%] top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
     <img id="micC" alt="microphone C" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4"/>
     <div class="absolute z-0 left-2/4 top-[42%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeC}</div>
     {#if litC}
-    <div class="absolute border-2 border-blue-500 rounded-full w-[10%] h-[10%] left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
+    <div class="absolute border-2 border-blue-500 opacity-70 rounded-full w-[10%] h-[10%] left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
     <img id="micD" alt="microphone D" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"/>
     <div class="absolute z-0 left-1/4 top-[65%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeD}</div>
     {#if litD}
-    <div class="absolute border-2 border-purple-500 rounded-full w-[10%] h-[10%] left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"> </div>
+    <div class="absolute border-2 border-purple-500 opacity-70 rounded-full w-[10%] h-[10%] left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
     {#if instruct}
-    <div class="absolute w-[40%] h-[20%] top-[2%] left-[-10px] -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none -rotate-12">Drag bird to move around!</div>
+    <div class="absolute text-center w-[40%] h-[5%] top-[15%] left-[25%] bg-white -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none -rotate-12 text-blue-900 text-lg">Drag bird to move!</div>
     {/if}
-    <div class="absolute bottom-0 w-24 left-2/4 -translate-x-2/4 px-2 py-1 bg-white text-xl z-50">
+    <div class="absolute bottom-0 w-24 left-2/4 -translate-x-2/4 px-2 py-1 bg-white text-xl z-40 border-t border-l border-r border-black">
         <div>{currentTimestamp}</div>
     </div>
 </div>
 <div class="relative grid grid-rows-[50%_50%] grid-cols-1 left-2/4 -translate-x-2/4 w-[30rem] h-12 mb-4">
     <div class="relative">
-        <div class="absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
+        <div class="absolute left-0 top-2/4 -translate-y-2/4">|</div>
         <div class="absolute left-1/4 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
         <div class="absolute left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
         <div class="absolute left-3/4 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
-        <div class="absolute right-0 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
-        <div id="redbox" class="bg-red-500 absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4 2 h-4 w-4 rounded-full opacity-0"></div>
-
+        <div class="absolute right-0 top-2/4 -translate-y-2/4">|</div>
+        <div id="redbox" class="bg-orange-500 absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4 2 h-4 w-4 rounded-full opacity-0"></div>
         <div id="greenbox" class="bg-green-500 absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4 2 h-4 w-4 rounded-full opacity-0"></div>
-
         <div id="bluebox" class="bg-blue-500 absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4 2 h-4 w-4 rounded-full opacity-0"></div>
-
-
         <div id="purplebox" class="bg-purple-500 absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4 2 h-4 w-4 rounded-full opacity-0"></div>
-
     </div>
     <div class="relative">
         <div class="absolute left-0 top-2/4 -translate-y-2/4 -translate-x-2/4">0s</div>

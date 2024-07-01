@@ -1,66 +1,73 @@
 <script lang="ts">
-    import hermit from '$lib/Hermit_thrush_qmnonic.jpg';
+    import birdlocs from '$lib/jun22-2023.png';
+    import consistency from '$lib/consistency.png';
 	import { fade } from 'svelte/transition';
     import Birdmover from './birdmover.svelte';
-    let showText = true;
 
 
 </script>
 
-<div class="max-w-2xl mx-auto mt-6 p-2 text-xl">
-    <h1 class="text-center text-2xl">Automated Acoustic Triangulation of Animal Locations</h1>
-    <br>
+<div class="max-w-3xl mx-auto mt-6 p-2 text-lg">
+    <h1 class="text-center text-2xl">Automated Acoustic Triangulation</h1>
+    <!-- <br>
     For my master's research (2022-2024), I am exploring how birds move about their territories as they sing, especially in relation to their closest neighbours.
     There are few studies that have tracked movement for long periods of natural singing between neighbours, and none with my study species, the hermit thrush. Consequently, the research has involved innovation, extensive problem solving, and custom software development to track moment-to-moment bird positions with our lab's automated recorders.
+    <br> -->
+
     <br>
-
-</div>
-<div class="h-6"></div>
-<hr class="max-w-4xl mx-auto">
-<div class="h-6"></div>
-
-<button type="button" on:click={() => (showText = !showText)} class="block max-w-2xl mx-auto mt-4 p-2 text-xl underline text-center rounded-lg">
+    <p class="text-center text-2xl text-green-950">Let's play a game!</p>
+        <ul class="list-disc text-md">
+            <li>Move the bird around in the forest pictured below. </li> 
+            <li>Press the 'sing' button and watch how the sound from the bird spreads out and hits each microphone at different times.</li>
+            <li>The timeline below the forest shows when the sound hits each microphone.</li>
+            <li>See if you can predict where the dots will end up based on where you place the bird.</li>
+            <li>Once you're a pro, read on to find out the point of all this!</li>
+        </ul>
+        
     
-    <div class={showText?"text-slate-500":"text-black"}>{showText?'Read less' : 'Read more'}</div>
-</button>
-{#if showText}
-<div transition:fade class="max-w-4xl mx-auto p-2">
-    <br>
-    <p>The idea of triangulating a sound source is old and relatively simple, but the implementation can be very complicated. To get a sense of the math, move the singing bird around in the forest picture below. Watch how the timing of its song hitting each recorder changes based on where it is in the forest. Each location in the forest has a unique set of timings across the recorders!
+    <p class="text-[16px] text-center">
+        (I've slowed down the speed of sound dramatically to make it user-friendly)
     </p>
-    <br>
-
+    <div class="h-6 border-b border-slate-200 max-w-4xl mx-auto"></div>
+    <hr class="max-w-4xl mx-auto">
+    <div class="h-6 max-w-4xl mx-auto"></div>
     <Birdmover/>
-    <div class="text-center tracking-wider w-[90%] m-auto"><b>What this means is that if we know the timing of a given song on each recorder, we can calculate the bird's position in the forest!</b>
-    </div>
-    
-    <br>
-    <h2 class="text-lg font-bold">So, why is it difficult?</h2>
-    <br>
-    
-    <p>Each measurement of song timing actually depends on three measurements:    </p>
-        <ul class="list-decimal list-inside my-2 ml-2">
-            <li><u>GPS:</u> The location of each recorder</li>
-            <li><u>Clock Drift:</u> The synchronization of each recorder's clock </li>
-            <li><u>Onset Detection:</u> the precise selection of each song's timing on the different recorders</li>
-        </ul> 
-        All of these measurements are subject to error, and if we accumulate enough error, our estimated bird locations will be horribly and unpredicatbly wrong!
 
-    <br>
-    
-    <br>
-    <h2 class="text-lg font-bold">Solutions</h2>
-    <br>
-    
-    <p>
-        I wrote <a href="https://github.com/Struckhour" class="underline" target="_blank">custom software</a> to solve each of these problems, but in order to keep things brief here, I'll focus on the most interesting one: detecting the onset of each song on each recorder.
-    </p>
-    <br>
-    <h2 class="text-lg font-bold">Results</h2>
-    <br>
-    <p>
-        As of July 2024, I am analyzing the data. I have recorded all the birds and calculated their moment-to-moment locations, and am now making the statistical comparisons that check whether two neighbours' change their singing based on their movements and location. So far the results are promising. The graph below shows how one bird's song order (syntax) relates to distance from its neighbour. More specifically, the bird orders its songs less predictably as it gets closer to its neighbour! I wonder what that's all about! 
-    </p>
+    <div class="text-center tracking-wider w-[90%] max-w-4xl m-auto"><b>Since every position has slightly different timings on the recorders, we can use that data to calculate the bird's position in the forest!</b>
+    </div>
+
+
+    <div class="max-w-4xl mx-auto p-2">
+        <br>
+        <h2 class="text-lg font-bold">Sounds easy enough, but...</h2>
+        <br>
+        
+        <p>These calculations actually depend on three difficult measurements:    </p>
+            <ul class="list-decimal list-inside my-2 ml-2">
+                <li><u>GPS:</u> The precise location of each recorder (more precise = better)</li>
+                <li><u>Clock Drift:</u> The synchronization of each recorder's imperfect clock </li>
+                <li><u>Onset Detection:</u> the precise selection of each song's timing on the different recordings</li>
+            </ul> 
+            All of these measurements are subject to error, and if we accumulate enough error, our estimated bird locations will be horribly and unpredicatbly wrong!
+
+        <br>
+        
+        <br>
+        <h2 class="text-lg font-bold">Solutions</h2>
+        <br>
+        
+        <p>
+            I developed a system and wrote custom Python software to solve each of these problems. If you would like to know more about it, don't hesitate to <a href="https://github.com/Struckhour" class="underline" target="_blank">check out the code</a> and/or <a href="/links" target="_blank" class="underline">reach out</a>. The final output includes an image of how two birds (in this case, named 'BBF8' and 'GB1') moved around their territories while singing. Their dots change colour through the rainbow from red to purple as time passes.
+        </p>
+        <img alt="a graph of birds moving about in the forest while singing." src={birdlocs} />
+        <br>
+        <h2 class="text-lg font-bold">Results</h2>
+        <br>
+        <p>
+            As of July 2024, I have recorded all the birds and am analyzing the data. After calculating the birds' moment-to-moment locations, I am now statistically measuring whether they change their singing based on their distance to neighbours. So far the results look promising. The graph below shows how one bird changes the order of its songs as it gets closer to its neighbour. More specifically, the bird orders its songs <i>more predictably</i> as it gets further from its neighbour. That suggests it is doing interesting things when it is closer. Very curious... 
+        </p>
+        <img alt="a line graph comparing song consistency and distance between birds over time" src={consistency} />
+    </div>
+
+<div class="h-64 max-w-4xl mx-auto"></div>
 </div>
-{/if}
-<div class="h-64"></div>

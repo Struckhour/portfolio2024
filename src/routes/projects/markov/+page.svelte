@@ -4,11 +4,11 @@
     import hermit from '$lib/Hermit_thrush_qmnonic.jpg';
 	import { fade } from 'svelte/transition';
 
-    let showText = false;
+    let showText = true;
 
 </script>
 
-<div class="max-w-2xl mx-auto mt-6 p-2 text-xl">
+<div class="max-w-2xl mx-auto mt-6 p-2 text-xl text-center">
     <h1 class="text-center text-2xl">Markov Analysis of Birdsong</h1>
     <br>
     For my honours research in 2020, I explored how birds order their songs into complex sequences.
@@ -23,21 +23,21 @@
 <hr class="max-w-4xl mx-auto">
 <div class="h-6"></div>
 
-<button type="button" on:click={() => (showText = !showText)} class="block max-w-2xl mx-auto mt-4 p-2 text-xl underline text-center rounded-lg">
-    <img alt="a hermit thrush." src={hermit} class="w-48 h-48 m-auto rounded-full object-cover"/>
+<img alt="a hermit thrush." src={hermit} class="w-48 h-48 m-auto rounded-full object-cover"/>
+<!-- <button type="button" on:click={() => (showText = !showText)} class="block max-w-2xl mx-auto mt-4 p-2 text-xl underline text-center rounded-lg">
     <div class={showText?"text-slate-500":"text-black"}>{showText?'Read less' : 'Read more'}</div>
-</button>
+</button> -->
 {#if showText}
 <div transition:fade class="max-w-4xl mx-auto p-2">
     <br>
-    <p>A hermit thrush (seen above) is a forest-dwelling bird known for its beautiful, haunting song. However, What most people hear and think of as a singular repeating
-    2-second song is actually slightly different songs being ordered into complex sequences (like words being ordered into sentences).
-    It cycles through its 10-15 songs and chooses the next one based on what it has previously sung.
-    For example, it almost never sings the same song twice in a row.
+    <p>A hermit thrush (seen above) is a forest-dwelling bird known for its beautiful, haunting song. However, what most people hear and think of as a singular repeating
+    2-second song is actually slightly different versions being ordered into complex sequences (like words being ordered into sentences).
+    It cycles through its 10-15 song-types and chooses the next one based on what it has previously sung.
+    For example, it almost never sings the same song-type in a row.
     The question I set out to answer was quite simple:
     </p>
     <br>
-    <div class="text-center tracking-wider w-[90%] m-auto"><b>How many previous songs influence the upcoming song choice of a hermit thrush? In other words, does a bird care what it recently sang?</b>
+    <div class="text-center tracking-wider w-[90%] m-auto"><b>How many previous songs influence the upcoming song choice? In other words, does a bird care what it recently sang?</b>
     </div>
     
     <br>
@@ -48,7 +48,7 @@
         What if I know the most recent two songs? Three songs, etc.?
     </p>
     <br>
-    <p>First, I recorded <b><i>a lot</i></b> of hermit thrush song. After selecting and identifying each individual song (with help), 
+    <p>First, I recorded <b><i>a lot</i></b> of hermit thrush song. After selecting and identifying the thousands of individual songs (with help from lab-mates), 
         I looked at the transitions from one song to the next and and asked if the upcoming song differs depending on what was recently sung.
         For example, maybe every time a bird sings song D it follows with either song G or song C. </p>
     <br>
@@ -62,7 +62,7 @@
         It is not enough that we know the most recent song.
         But what if we go further back? Perhaps the bird is even <i>more</i> likely to follow up with G after song D if D is preceded by J, B, and then A. 
         Is there a limit to how much predictive power we gain by looking further back in the sequence?
-        I looked at all the most common transitions up to four songs back and used Fisher's Test to measure whether there is a statistical difference between the sequences.
+        I looked at all the most common transitions up to four songs back and used Fisher's Tests to measure whether there is a statistical difference between the sequences.
     </p>
     
     <br>
@@ -73,19 +73,19 @@
         The other thing we can do is measure the proportion of song G or C that followed song D. 
         We can then generate a thousand simulations of singing bouts that use those measured proportions to choose the next song.
         Every time the computer produces a song D in the sequence, it chooses the next song, G or C, based on the proportions of G and C that followed D in the actual recording.
-        We can then compare the simulated sequences to actual sequences of song: if the simulations are similarly to the birds real singing, then the bird must be using similar rules when choosing its songs.
+        We can then compare the simulated sequences to actual sequences of song: if the simulations are similar to the birds real singing, then the bird must be using similar rules when choosing its songs.
     </p>
     <br>
     <h2 class="text-lg font-bold">Results</h2>
     <br>
     <p>
         I was able to collect enough song recordings of fourteen different birds to measure whether it was useful to know the previous four songs.
-        It was! This suggests that a bird remembers what it sang at least 20 seconds ago and uses that knowledge to decide what to sing next.
+        It was! This suggests that a bird remembers what it sang about 20 seconds ago and uses that knowledge to decide what to sing next.
         However, I found that knowing up to the two previous songs provided the largest gains in predictive accuracy. 
         Knowing three and four previous songs offered diminishing returns. This suggests that the bird is much more concerned with its most recent singing.
         Why? What are they saying? Who are they singing to? That is what I am exploring in my <a href="triangulation" class="underline">master's research</a>!
     </p>
 </div>
 {/if}
-<div class="h-64"></div>
+<div class="h-64 max-w-2xl"></div>
 
