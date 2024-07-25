@@ -8,7 +8,7 @@
 
 <div class="max-w-3xl mx-auto mt-6 p-2 text-lg">
     <h1 class="text-center text-2xl text-green-950 mb-4">Birdsong Detection and Classification</h1>
-    <p class="py-2 indent-4">Birdsong research often involves boxing and selecting a lot of songs on a computer screen, sometimes thousands. To aid with this process, I used Python (tensorflow) to train an image classifier to detect and box hermit thrush songs. This involved scraping years of data that had been manually selected, using that data to train the model, and writing post-processing code to increase accuracy and convert the ML model output into <a class="underline" href="https://www.birds.cornell.edu/ccb/raven-pro/">Raven</a>  selection tables.</p>
+    <p class="py-2 indent-4">Birdsong research often involves boxing and selecting a lot of songs on a computer screen&#x2014;sometimes thousands. To aid with this process, I used Python (with tensorflow) to build an image classifier that detects and boxes hermit thrush songs. This involved scraping years of data from our lab, using that data to train a machine learning model, then writing post-processing software to increase the accuracy and convert the output into <a class="underline" href="https://www.birds.cornell.edu/ccb/raven-pro/">Raven</a>  selection tables.</p>
     <p class="indent-4">To understand what the model does, consider the spectrogram images below, some of which are left-aligned hermit thrush song (hits) and some of which are other birdsong or misaligned hermit thrush song (misses)</p>
     <div class="grid grid-cols-2 grid-rows-[12px_fr_fr_fr] gap-2 mt-4">
         <h2 class="text-center underline">Hits</h2>

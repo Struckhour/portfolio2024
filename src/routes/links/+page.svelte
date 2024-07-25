@@ -2,7 +2,7 @@
 <div class="max-w-2xl mx-auto pt-12 text-xl text-center underline mb-2">Contact</div>
 <ul class="max-w-2xl mx-auto text-xl text-center">
     <li>
-        luke.c.mclean@gmail.com
+        lukecmclean@gmail.com
     </li>
 </ul>
 

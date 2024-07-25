@@ -80,8 +80,8 @@
     <br>
     <p>
         I was able to collect enough song recordings of fourteen different birds to measure whether it was useful to know the previous four songs.
-        It was! This suggests that a bird remembers what it sang about 20 seconds ago and uses that knowledge to decide what to sing next.
-        However, I found that knowing up to the two previous songs provided the largest gains in predictive accuracy. 
+        And it was! This suggests that a bird remembers what it sang about 20 seconds ago and uses that knowledge to decide what to sing next.
+        However, I found that knowing <i>two</i> previous songs provided the largest gains in predictive accuracy. 
         Knowing three and four previous songs offered diminishing returns. This suggests that the bird is much more concerned with its most recent singing.
         Why? What are they saying? Who are they singing to? That is what I am exploring in my <a href="triangulation" class="underline">master's research</a>!
     </p>
