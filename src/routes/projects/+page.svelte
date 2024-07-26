@@ -1,4 +1,6 @@
 <script>
+	import { goto } from "$app/navigation";
+
 
 	import { fade } from "svelte/transition";
 
@@ -11,13 +13,13 @@
             Hello! Luke McLean here. I put this site together to share some of the science research, software, and web development projects that I have worked on in the past few years. Enjoy!
         </p>
         <p class="text-center text-base">
-            (If you'd like to contact me, please do: lukecmclean@gmail.com)
+            (If you'd like to contact me: lukecmclean@gmail.com)
         </p>
     </div>
 
     <hr class="border-t border-green-900 max-w-4xl my-4 mx-auto">
 
-<div class="grid grid-cols-[40%_20%_40%] grid-rows-5 max-w-4xl mx-auto gap-2">
+<div class="grid grid-cols-[40%_20%_40%] grid-rows-5 max-w-4xl mx-auto gap-y-8">
 
     <h1 class="text-center text-2xl mt-6">
         Research and Data Analysis
@@ -27,38 +29,38 @@
         Web Development
     </h1>
 
-    <div class="border border-slate-300 hover:border-green-900 hover:border-2">
-        <a href="projects/triangulation">Automated Acoustic Triangulation of Animal Locations</a>
-    </div>
+    <button on:click={() => goto("projects/triangulation")} class="border border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40">
+        Automated Acoustic Triangulation of Animal Locations
+    </button>
     <div class="flex justify-center items-center">
         <div class="h-8 text-lg font-bold">--2024--</div>
     </div>
-    <div class="border border-slate-300 hover:border-green-900 hover:border-2">
+    <button on:click={() => goto("projects/markov")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full bg-blue-800 bg-opacity-30 hover:bg-opacity-40">
         A cool site goes here.
-    </div>
+    </button>
 
-    <div class="border border-slate-300 hover:border-green-900 hover:border-2">
-        <a href="projects/hethfinder">Detecting and Classifying Sounds with Machine Learning</a>
-    </div>
+    <button on:click={() => goto("projects/triangulation")} class="border-2 border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40">
+        Detecting and Classifying Sounds with Machine Learning
+    </button>
     <div class="flex justify-center items-center">
         <div class="h-8 text-lg font-bold">--2023--</div>
     </div>    
-    <div class="border border-slate-300 hover:border-green-900 hover:border-2">
-        <a href="projects/ghost">The Ghost Recon Bulletdrop Compendium</a>
-    </div>
+    <button on:click={() => goto("projects/ghost")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full px-4 bg-blue-800 bg-opacity-30 hover:bg-opacity-40">
+        The Ghost Recon Bulletdrop Compendium
+    </button>
     
     
-    <div class="border border-slate-300 hover:border-green-900 hover:border-2">
-        <a href="projects/markov">Markov Chains!</a>
-    </div>
+    <button on:click={() => goto("projects/markov")} class="border border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40">
+        Markov Chains in Animal Communication!
+    </button>
 
     <div class="flex justify-center items-center">
-        <div class="h-8 text-lg font-bold">--2022--</div>
+        <div class="h-8 text-lg font-bold">--Past--</div>
     </div>  
 
-    <div class="border border-slate-300 hover:border-green-900 hover:border-2">
-        <a href="https:/katherinemccordpottery.com" target="_blank">A website I made for my favourite potter</a>
-    </div>
+    <button on:click={() => goto("projects/pottery")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full px-4 bg-blue-800 bg-opacity-30 hover:bg-opacity-40">
+        A website I made for a local potter
+    </button>
 
 
 </div>
