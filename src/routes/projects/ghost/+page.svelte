@@ -13,7 +13,7 @@
         </a>
     </div>
     <p class="mt-4">
-        A few years ago my good friend, HeavyHawk, was playing Ghost Recon:Breakpoint (the popular video game) and suggested it would be nice if there were a website that could tell players how much their <a href="https://en.wikipedia.org/wiki/External_ballistics" target="_blank" class="underline">bullets would drop as they move through the air.</a> This is no simple question because:
+        A few years ago my good friend, HeavyHawk, was playing Ghost Recon:Breakpoint (the popular video game) and suggested it would be nice if there were a <a href="https://bulletdrop.netlify.app" target="_blank" class="underline">website</a> that could tell players how much their <a href="https://en.wikipedia.org/wiki/External_ballistics" target="_blank" class="underline">bullets would drop as they move through the air.</a> This is no simple question because:
         <ol class="mt-2 list-decimal ml-6">
             <li>the game does not obey real-world physics. </li>
             <li>the rifles and attachments do not behave as stated in-game. </li>
@@ -22,7 +22,7 @@
         
         <br>   
         <p>
-        HeavyHawk tested <i>many</i> individual rifle combinations and we built <a href="https://bulletdrop.netlify.app" target="_blank" class="underline">this free site</a> so that keen gamers can finally hit all those long-range shots from a safe distance. The website is designed to be quick and easy (for those who understand its purpose), but there is actually a ton of information if one wants to dig around and nerd out on the fictional physics and statistics.
+        HeavyHawk tested <i>many</i> individual rifle combinations and we built <a href="https://bulletdrop.netlify.app" target="_blank" class="underline">this free site</a> so that keen gamers can finally hit (very) long-range shots with all their favourite loadouts. The website is designed to be quick and easy to use (just select a rifle and a scope and read the mildots), but there is actually a ton of information if one wants to dig around and nerd out on the fictional physics and statistics.
     </p>
     
 </div>

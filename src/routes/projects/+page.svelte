@@ -35,11 +35,11 @@
     <div class="flex justify-center items-center">
         <div class="h-8 text-lg font-bold">--2024--</div>
     </div>
-    <button on:click={() => goto("projects/markov")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full bg-blue-800 bg-opacity-30 hover:bg-opacity-40">
-        A cool site goes here.
+    <button on:click={() => goto("/")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full bg-blue-800 bg-opacity-30 hover:bg-opacity-40">
+        This site :)
     </button>
 
-    <button on:click={() => goto("projects/triangulation")} class="border-2 border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40">
+    <button on:click={() => goto("projects/hethfinder")} class="border-2 border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40">
         Detecting and Classifying Sounds with Machine Learning
     </button>
     <div class="flex justify-center items-center">
@@ -55,11 +55,11 @@
     </button>
 
     <div class="flex justify-center items-center">
-        <div class="h-8 text-lg font-bold">--Past--</div>
+        <div class="h-8 text-lg font-bold">--2020-2022--</div>
     </div>  
 
     <button on:click={() => goto("projects/pottery")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full px-4 bg-blue-800 bg-opacity-30 hover:bg-opacity-40">
-        A website I made for a local potter
+        A Local Artist's Website
     </button>
 
 

@@ -271,23 +271,35 @@
     <img id="micA" alt="microphone A" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-2/4 top-[15%] -translate-y-2/4 -translate-x-2/4"/>
     <div class="absolute z-0 left-2/4 top-[8%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeA}</div>
     {#if litA}
-    <div class="absolute border-2 border-orange-500 opacity-70 rounded-full w-[10%] h-[10%] left-2/4 top-[15%] -translate-y-2/4 -translate-x-2/4"> </div>
+    <div class="absolute border-4 border-orange-500 opacity-70 rounded-full w-[10%] h-[10%] left-2/4 top-[15%] -translate-y-2/4 -translate-x-2/4"> </div>
+    {:else}
+    <div class="absolute border border-orange-500 opacity-70 rounded-full w-[10%] h-[10%] left-2/4 top-[15%] -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
+
     <img id="micB" alt="microphone B" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-[85%] top-2/4  -translate-y-2/4 -translate-x-2/4"/>
     <div class="absolute z-0 left-[85%] top-[42%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeB}</div>
     {#if litB}
-    <div class="absolute border-2 border-green-500 opacity-70 rounded-full w-[10%] h-[10%] left-[85%] top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
+    <div class="absolute border-4 border-green-500 opacity-70 rounded-full w-[10%] h-[10%] left-[85%] top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
+    {:else}
+    <div class="absolute border border-green-500 opacity-70 rounded-full w-[10%] h-[10%] left-[85%] top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
+    
     <img id="micC" alt="microphone C" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4"/>
     <div class="absolute z-0 left-2/4 top-[42%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeC}</div>
     {#if litC}
-    <div class="absolute border-2 border-blue-500 opacity-70 rounded-full w-[10%] h-[10%] left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
+    <div class="absolute border-4 border-blue-500 opacity-70 rounded-full w-[10%] h-[10%] left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
+    {:else}
+    <div class="absolute border border-blue-500 opacity-70 rounded-full w-[10%] h-[10%] left-2/4 top-2/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
+    
     <img id="micD" alt="microphone D" src={microphone} class="absolute w-[10%] h-[10%] z-0 left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"/>
     <div class="absolute z-0 left-1/4 top-[65%] -translate-y-2/4 -translate-x-2/4 bg-white">{timeD}</div>
     {#if litD}
-    <div class="absolute border-2 border-purple-500 opacity-70 rounded-full w-[10%] h-[10%] left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"> </div>
+    <div class="absolute border-4 border-purple-500 opacity-70 rounded-full w-[10%] h-[10%] left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"> </div>
+    {:else}
+    <div class="absolute border border-purple-500 opacity-70 rounded-full w-[10%] h-[10%] left-1/4 top-3/4 -translate-y-2/4 -translate-x-2/4"> </div>
     {/if}
+
     {#if instruct}
     <div class="absolute text-center w-[40%] h-[5%] top-[15%] left-[25%] bg-white -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none -rotate-12 text-blue-900 text-lg">Drag bird to move!</div>
     {/if}
