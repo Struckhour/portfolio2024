@@ -6,7 +6,35 @@
 	import { fade, fly } from 'svelte/transition';
     import { crossfade } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
+    import highsong from '$lib/highsong.wav';
+    import lowsong from '$lib/lowsong.wav';
+    import mute from '$lib/mute.png';
+    import muteoff from '$lib/muteoff.svg';
 
+    let audioContext: AudioContext;
+    let audioBuffer: AudioBuffer | null = null;
+    let sourceNode: AudioBufferSourceNode | null = null;
+
+  // Function to load the audio file
+    const loadAudio = async (url: string) => {
+        const response = await fetch(url);
+        const arrayBuffer = await response.arrayBuffer();
+        audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+        playAudio();
+    };
+
+  // Function to play the audio
+  const playAudio = () => {
+    if (audioBuffer) {
+      sourceNode = audioContext.createBufferSource();
+      sourceNode.buffer = audioBuffer;
+      sourceNode.connect(audioContext.destination);
+      sourceNode.start(0);
+    }
+  };
+
+
+    
 	const [send, receive] = crossfade({
 		duration: 1500,
 		easing: quintOut
@@ -250,14 +278,38 @@
         const dist = ((soundOrigin.x - micPos.x)**2 + (soundOrigin.y - micPos.y)**2)**.5
         return dist;
     }
+    let muted = false;
+    let highlow = true;
     function handleClick() {
         resetInterval();
+        if (!muted) {
+            audioContext = new AudioContext();
+            if (highlow) {loadAudio(highsong)} else {loadAudio(lowsong)};
+            highlow = !highlow;
+            playAudio;
+        }
     }
+
+    function muteButton() {
+        muted = !muted;
+    }
+
     let instruct = true;
 
 </script>
+<div class="relative left-2/4 -translate-x-2/4">
 
-<button on:click={handleClick} class="relative left-2/4 -translate-x-2/4 border border-slate-500 text-xl rounded-xl p-2 m-1 bg-slate-200 z-40 hover:bg-slate-300 active:bg-slate-100">Sing</button>
+    <button on:click={handleClick} class="relative left-2/4 -translate-x-2/4 border border-slate-500 text-xl rounded-xl p-2 m-1 bg-slate-200 z-40 hover:bg-slate-300 active:bg-slate-100">Sing</button>
+    {#if !muted}
+    <button on:click={muteButton} class="absolute bottom-2 left-3/4 border-2 border-slate-500 rounded-xl p-2 bg-slate-50 z-40 hover:bg-slate-300 active:bg-slate-100 w-10 h-10">
+        <img alt="volume icon" src={muteoff} class = "w-full h-full"/>
+    </button>
+    {:else}
+    <button on:click={muteButton} class="absolute bottom-2 left-3/4 border border-black rounded-xl p-2 bg-slate-200 z-40 hover:bg-slate-300 active:bg-slate-100 w-10 h-10">
+        <img alt="mute icon" src={mute} class = "w-full h-full"/>
+    </button>
+    {/if}
+</div>
 <div on:mousemove={moveBird} role="alert" id="forest" class="relative w-[30rem] h-[30rem] mx-auto border border-green-700">
     <img id="trees" alt="some sketched trees" src={trees} class="object-cover w-[30rem] h-[30rem] opacity-50 pointer-events-none">
     <!-- bird -->
