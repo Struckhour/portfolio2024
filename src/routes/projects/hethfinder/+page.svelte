@@ -22,24 +22,24 @@
             <img class="border-4 border-blue-500 w-full h-[200px] object-fill" alt="aligned spectrogram of low-pitched hermit thrush song" src={lowheth} />
         </div>
         <div>
-            <h2 class="text-center text-sm">Other birdsong (not hermit thrush)</h2>
-            <img class="border-4 border-red-500 w-full h-[200px] object-fill" alt="other birdsong" src={notheth} />
+            <h2 class="text-center text-sm">Same song, too far to the right</h2>
+            <img class="border-4 border-red-500 w-full h-[200px] object-fill" alt="hermit thrush song too far to the right." src={lateheth} />
         </div>
         <div>
             <h2 class="text-center text-sm">Left-aligned high-pitched hermit thrush song</h2>
             <img class="border-4 border-blue-500 w-full h-[200px] object-fill" alt="aligned spectrogram of high-pitched hermit thrush song" src={highheth} />
         </div>
         <div>
-            <h2 class="text-center text-sm">Too far to the left</h2>
+            <h2 class="text-center text-sm">Same song, too far to the left</h2>
             <img class="border-4 border-red-500 w-full h-[200px] object-fill" alt="misaligned hermit thrush song too far to the left." src={earlyheth} />
         </div>
         <div>
-            <h2 class="text-center text-sm">Left-aligned hermit thrush song with background noise</h2>
+            <h2 class="text-center text-sm">Left-aligned hermit thrush song with interference</h2>
             <img class="border-4 border-blue-500 w-full h-[200px] object-fill" alt="aligned spectrogram of noisy hermit thrush song" src={noisyheth} />
         </div>
         <div>
-            <h2 class="text-center text-sm">A hermit thrush song that is too far to the right</h2>
-            <img class="border-4 border-red-500 w-full h-[200px] object-fill" alt="hermit thrush song too far to the right." src={lateheth} />
+            <h2 class="text-center text-sm">Other birdsong (not hermit thrush)</h2>
+            <img class="border-4 border-red-500 w-full h-[200px] object-fill" alt="other birdsong" src={notheth} />
         </div>
     </div>
     <p class="mt-12">To learn more about this process and the software, check out the <a href="https://www.youtube.com/watch?v=hOoyaQzYnX0&list=PLIWFDVILUKED29staaSbOvyotepbeH3fp" target="_blank" class="underline">youtube tutorial series</a> or the <a href="https://github.com/Struckhour/hethfinder" target="_blank" class="underline">code on github.</a></p>

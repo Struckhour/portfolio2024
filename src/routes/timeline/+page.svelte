@@ -30,7 +30,7 @@
     </div>
     <div class="absolute max-w-xs text-center right-[60%] lg:right-[52%] top-[59%] text-base lg:text-lg">
         <p class="font-bold">2017-2020</p>
-        <p class="underline">Bachelor of Science in Biopsychology (Hons.)</p>
+        <p class="underline">Bachelor of Science in Biopsychology (Hons)</p>
         <p class="text-sm lg:text-base">-University of New Brunswick-</p>
     </div>
 
@@ -38,7 +38,7 @@
     <div class="absolute max-w-xs text-center left-[61%] lg:left-[54%] top-[9%] text-base lg:text-lg">
         <p class="font-bold">2023-2024</p>
         <p class="underline">Research Assistant</p>
-        <p class="text-sm lg:text-base">Psychology and Data Analysis</p>
+        <p class="text-sm lg:text-base">Psychology Research and Data Analysis</p>
         <p class="text-sm lg:text-base">-University of New Brunswick-</p>
     </div>
     <div class="absolute max-w-xs text-center left-[60%] lg:left-[53%] top-[23%] text-base lg:text-lg">
@@ -61,8 +61,8 @@
     </div>
     <div class="absolute max-w-xs text-center left-[63%] lg:left-[55%] top-[74%] lg:top-[76%] text-base lg:text-lg">
         <p class="font-bold">2012-Present</p>
-        <p class="underline">Private Music Teaching</p>
-        <p class="text-sm lg:text-base">Piano, all ages and skill levels</p>
+        <p class="underline">Piano Lessons</p>
+        <p class="text-sm lg:text-base">all ages, styles, and skill levels</p>
         <p class="text-sm lg:text-base">-St. Andrews, NB-</p>
     </div>
 </div>
