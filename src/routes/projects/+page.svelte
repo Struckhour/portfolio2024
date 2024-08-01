@@ -1,9 +1,5 @@
 <script>
 	import { goto } from "$app/navigation";
-
-
-	import { fade } from "svelte/transition";
-
 </script>
 
 
