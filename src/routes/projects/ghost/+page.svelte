@@ -1,7 +1,5 @@
 <script lang="ts">
     import ghost from '$lib/breakpoint.jpg';
-    import { goto } from '$app/navigation';
-
 </script>
 
 <div class="max-w-2xl mx-auto mt-6 p-2 text-xl text-left">
@@ -24,6 +22,5 @@
         <p>
         HeavyHawk tested <i>many</i> individual rifle combinations and we built <a href="https://bulletdrop.netlify.app" target="_blank" class="underline">this free site</a> so that keen gamers can finally hit (very) long-range shots with all their favourite loadouts. The website is designed to be quick and easy to use (just select a rifle and a scope and read the mildots), but there is actually a ton of information if one wants to dig around and nerd out on the fictional physics and statistics.
     </p>
-    
 </div>
 <div class="h-6"></div>

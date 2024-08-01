@@ -3,9 +3,6 @@
     import birdPic from '$lib/bird.png';
     import {onMount,onDestroy} from "svelte";
     import trees from '$lib/trees.jpg';
-	import { fade, fly } from 'svelte/transition';
-    import { crossfade } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
     import highsong from '$lib/highsong.wav';
     import lowsong from '$lib/lowsong.wav';
     import mute from '$lib/mute.png';
@@ -23,23 +20,16 @@
         playAudio();
     };
 
-  // Function to play the audio
-  const playAudio = () => {
-    if (audioBuffer) {
-      sourceNode = audioContext.createBufferSource();
-      sourceNode.buffer = audioBuffer;
-      sourceNode.connect(audioContext.destination);
-      sourceNode.start(0);
-    }
-  };
+    // Function to play the audio
+    const playAudio = () => {
+        if (audioBuffer) {
+        sourceNode = audioContext.createBufferSource();
+        sourceNode.buffer = audioBuffer;
+        sourceNode.connect(audioContext.destination);
+        sourceNode.start(0);
+        }
+    };
 
-
-    
-	const [send, receive] = crossfade({
-		duration: 1500,
-		easing: quintOut
-	});
-    
     // let counter = 0;
     let interval: number;
     let clockInterval: number;
@@ -110,6 +100,7 @@
         for (let dot of ['redbox', 'greenbox', 'bluebox', 'purplebox']) {
             turnOffDot(dot);
         }
+
     	clearInterval(interval);
     	interval = setInterval(()=>{
             let soundCircle = document.getElementById('soundCircle');
@@ -200,23 +191,17 @@
         currentTimestamp = formatTime(new Date());
         }, 10)
     }
+
     let now = new Date();
     // get the current date and time as a string
     let currentTimestamp = formatTime(now);
-
     let inBox = false;
-
     let lastTweet = 0;
     let pingWidth = 20;
     let pingHeight = 20;
     let lastFrame = 0;
-    
-    const timeInterval = setInterval(() => {
-
-    }, 1000)
-
-
     let birdGrabbed = false;
+    let instruct = true;
 
     let m = { x: 0, y: 0 };
     function moveBird(event: MouseEvent) {
@@ -252,8 +237,6 @@
         return {x: xPerc, y: yPerc};
     }
 
-
-
     function updateBirdPosition(x: number, y: number) {
         let bird = document.getElementById("bird");
         let birdVeil = document.getElementById("birdVeil");
@@ -266,13 +249,6 @@
         bird.style.left = `${x}%`;
         bird.style.top = `${y}%`;
     }
-    function replaceBirdPosition() {
-        let bird = document.getElementById("bird");
-        if (!bird) return;
-        bird.style.left = `25%`;
-        bird.style.top = `25%`;
-    }
-
 
     function getDistance(micPos: Record<string, number>, soundOrigin: {x: number, y: number}) {
         const dist = ((soundOrigin.x - micPos.x)**2 + (soundOrigin.y - micPos.y)**2)**.5
@@ -293,12 +269,8 @@
     function muteButton() {
         muted = !muted;
     }
-
-    let instruct = true;
-
 </script>
 <div class="relative left-2/4 -translate-x-2/4">
-
     <button on:click={handleClick} class="relative left-2/4 -translate-x-2/4 border border-slate-500 text-xl rounded-xl p-2 m-1 bg-slate-200 z-40 hover:bg-slate-300 active:bg-slate-100">Sing</button>
     {#if !muted}
     <button on:click={muteButton} class="absolute bottom-2 left-3/4 border-2 border-slate-500 rounded-xl p-2 bg-slate-50 z-40 hover:bg-slate-300 active:bg-slate-100 w-10 h-10">
@@ -310,6 +282,7 @@
     </button>
     {/if}
 </div>
+
 <div on:mousemove={moveBird} role="alert" id="forest" class="relative w-[30rem] h-[30rem] mx-auto border border-green-700">
     <img id="trees" alt="some sketched trees" src={trees} class="object-cover w-[30rem] h-[30rem] opacity-50 pointer-events-none">
     <!-- bird -->
@@ -359,6 +332,8 @@
         <div>{currentTimestamp}</div>
     </div>
 </div>
+
+<!-- timeline with coloured dots -->
 <div class="relative grid grid-rows-[50%_50%] grid-cols-1 left-2/4 -translate-x-2/4 w-[30rem] h-12 mb-4">
     <div class="relative">
         <div class="absolute left-0 top-2/4 -translate-y-2/4">|</div>

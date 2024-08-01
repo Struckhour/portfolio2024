@@ -5,9 +5,6 @@
     import lowheth from '$lib/lowheth.png';
     import highheth from '$lib/highheth.png';
     import noisyheth from '$lib/noisyheth.png';
-
-
-
 </script>
 
 <div class="max-w-3xl mx-auto mt-6 p-2 text-lg">

@@ -1,19 +1,11 @@
 <script lang="ts">
     import birdlocs from '$lib/jun22-2023.png';
     import consistency from '$lib/consistency.png';
-	import { fade } from 'svelte/transition';
     import Birdmover from './birdmover.svelte';
-
-
 </script>
 
 <div class="max-w-3xl mx-auto mt-6 p-2 text-lg">
     <h1 class="text-center text-2xl">Automated Acoustic Triangulation</h1>
-    <!-- <br>
-    For my master's research (2022-2024), I am exploring how birds move about their territories as they sing, especially in relation to their closest neighbours.
-    There are few studies that have tracked movement for long periods of natural singing between neighbours, and none with my study species, the hermit thrush. Consequently, the research has involved innovation, extensive problem solving, and custom software development to track moment-to-moment bird positions with our lab's automated recorders.
-    <br> -->
-
     <br>
     <p class="text-center text-2xl text-green-950">Let's play a game!</p>
         <ul class="list-disc text-md">
@@ -31,11 +23,11 @@
     <div class="h-6 border-b border-slate-200 max-w-4xl mx-auto"></div>
     <hr class="max-w-4xl mx-auto">
     <div class="h-6 max-w-4xl mx-auto"></div>
+
     <Birdmover/>
 
     <div class="text-center tracking-wider w-[90%] max-w-4xl m-auto"><b>Since every position has slightly different timings on the recorders, we can use that data to calculate the bird's position in the forest!</b>
     </div>
-
 
     <div class="max-w-4xl mx-auto p-2">
         <br>
@@ -69,5 +61,5 @@
         <img alt="a line graph comparing song consistency and distance between birds over time" src={consistency} />
     </div>
 
-<div class="h-64 max-w-4xl mx-auto"></div>
+    <div class="h-64 max-w-4xl mx-auto"></div>
 </div>

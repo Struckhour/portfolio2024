@@ -2,10 +2,6 @@
     import notes1 from '$lib/Slide1.jpg';
     import notes2 from '$lib/Slide2.jpg';
     import hermit from '$lib/Hermit_thrush_qmnonic.jpg';
-	import { fade } from 'svelte/transition';
-
-    let showText = true;
-
 </script>
 
 <div class="max-w-2xl mx-auto mt-6 p-2 text-xl text-center">
@@ -24,11 +20,8 @@
 <div class="h-6"></div>
 
 <img alt="a hermit thrush." src={hermit} class="w-48 h-48 m-auto rounded-full object-cover"/>
-<!-- <button type="button" on:click={() => (showText = !showText)} class="block max-w-2xl mx-auto mt-4 p-2 text-xl underline text-center rounded-lg">
-    <div class={showText?"text-slate-500":"text-black"}>{showText?'Read less' : 'Read more'}</div>
-</button> -->
-{#if showText}
-<div transition:fade class="max-w-4xl mx-auto p-2">
+
+<div class="max-w-4xl mx-auto p-2">
     <br>
     <p>A hermit thrush (seen above) is a forest-dwelling bird known for its beautiful, haunting song. However, what most people hear and think of as a singular repeating
     2-second song is actually slightly different versions being ordered into complex sequences (like words being ordered into sentences).
@@ -86,6 +79,5 @@
         Why? What are they saying? Who are they singing to? That is what I am exploring in my <a href="triangulation" class="underline">master's research</a>!
     </p>
 </div>
-{/if}
 <div class="h-64 max-w-2xl"></div>
 

@@ -1,6 +1,5 @@
 <script lang="ts">
   import mug from '$lib/mug.png';
-
 </script>
 
 <div class="max-w-2xl mx-auto mt-6 p-2 text-xl text-left">

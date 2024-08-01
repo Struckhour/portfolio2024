@@ -33,8 +33,6 @@
         <p class="underline">Bachelor of Science in Biopsychology (Hons)</p>
         <p class="text-sm lg:text-base">-University of New Brunswick-</p>
     </div>
-
-
     <div class="absolute max-w-xs text-center left-[61%] lg:left-[54%] top-[9%] text-base lg:text-lg">
         <p class="font-bold text-green-900 font-serif tracking-widest">2023-2024</p>
         <p class="underline">Research Assistant</p>
