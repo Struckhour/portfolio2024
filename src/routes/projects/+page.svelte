@@ -35,8 +35,8 @@
     <div class="flex justify-center items-center">
         <div class="h-8 text-lg font-bold">--2024--</div>
     </div>
-    <button on:click={() => goto("/")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full bg-blue-800 bg-opacity-30 hover:bg-opacity-40">
-        This site :)
+    <button on:click={() => goto("projects/wordgame")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full bg-blue-800 bg-opacity-30 hover:bg-opacity-40">
+        A fun little word game
     </button>
 
     <button on:click={() => goto("projects/hethfinder")} class="border-2 border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40">

@@ -30,7 +30,7 @@
         <a href="https://katherinemccordpottery.com" target="_blank" class="underline">Katherine McCord Pottery</a>
     </li>
     <li>
-        <a href="/" target="_blank" class="underline">The Current Site :)</a>
+        <a href="https://ent-ris.vercel.app" target="_blank" class="underline">Ent-ris</a>
     </li>
 
 
