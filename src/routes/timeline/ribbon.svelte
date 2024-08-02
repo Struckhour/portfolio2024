@@ -15,8 +15,8 @@
 
         const numberOfCurves = 6;
         const curveHeight = height / numberOfCurves;
-        const rightOffshootLengths = [10, -25, 3, -12, 15, 3];
-        const leftOffshootLengths = [22, -1, 23, -18, 15, 3];
+        const rightOffshootLengths = [-8, -25, 3, -12, 15, 3];
+        const leftOffshootLengths = [25, -1, 20, -5, 15, 3];
         const rightBranches = [0, 1, 2, 3, 4, ]
         const leftBranches = [0, 1, 2, 3]
 
