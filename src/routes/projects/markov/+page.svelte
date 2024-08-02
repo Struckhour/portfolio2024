@@ -13,7 +13,7 @@
     The research was published in the
      <a href="https://link.springer.com/article/10.1007/s10336-020-01840-2" target="_blank" class="underline">Journal of Ornithology</a>,
       but a less academic summary can be read below and
-      the R code for generating simulated sequences can be found on my <a href="https://github.com/Struckhour" target="_blank" class="underline">github page</a>.
+      the R code for generating simulated sequences can be found on my <a href="https://github.com/Struckhour/markov" target="_blank" class="underline">github page</a>.
 </div>
 <div class="h-6"></div>
 <hr class="max-w-4xl mx-auto">

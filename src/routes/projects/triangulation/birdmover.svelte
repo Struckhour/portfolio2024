@@ -177,8 +177,45 @@
     	}, 10)
     }
     
+    let birdVeil: HTMLElement|null = document.getElementById('birdVeil')
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+    let bird: HTMLElement|null = document.getElementById('bird');
+    let forest: HTMLElement|null = document.getElementById('forest')
+
+    function onTouchStart(event: TouchEvent) {
+    isDragging = true;
+    const touch = event.touches[0];
+    if (birdVeil) {
+        offsetX = touch.clientX - birdVeil.offsetLeft;
+        offsetY = touch.clientY - birdVeil.offsetTop;
+    }
+  }
+
+  function onTouchMove(event: TouchEvent) {
+    if (isDragging) {
+      const touch = event.touches[0];
+      if (birdVeil && bird) {
+          birdVeil.style.left = `${touch.clientX - offsetX}px`;
+          birdVeil.style.top = `${touch.clientY - offsetY}px`;
+          bird.style.left = `${touch.clientX - offsetX}px`;
+          bird.style.top = `${touch.clientY - offsetY}px`;
+      }
+    }
+  }
+
+  function onTouchEnd() {
+    isDragging = false;
+  }
+
     onMount(()=>{
     	resetClock();
+        if (birdVeil) birdVeil.addEventListener("touchstart", onTouchStart);
+        if (forest) {
+            forest.addEventListener("touchmove", onTouchMove);
+            forest.addEventListener("touchend", onTouchEnd);
+        }
     });
     
     onDestroy(()=>{
@@ -283,8 +320,8 @@
     {/if}
 </div>
 
-<div on:mousemove={moveBird} role="alert" id="forest" class="relative w-[30rem] h-[30rem] mx-auto border border-green-700">
-    <img id="trees" alt="some sketched trees" src={trees} class="object-cover w-[30rem] h-[30rem] opacity-50 pointer-events-none">
+<div on:mousemove={moveBird} role="alert" id="forest" class="relative w-screen aspect-square sm:aspect-auto sm:w-[30rem] sm:h-[30rem] mx-auto border border-green-700">
+    <img id="trees" alt="some sketched trees" src={trees} class="object-cover w-screen aspect-square sm:aspect-auto sm:w-[30rem] sm:h-[30rem] opacity-50 pointer-events-none">
     <!-- bird -->
     <img id="bird" alt="a bird" src={birdPic} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none"/>
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->

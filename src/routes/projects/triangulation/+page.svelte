@@ -20,9 +20,9 @@
     <p class="text-[16px] text-center">
         (I've slowed down the speed of sound dramatically to make it user-friendly)
     </p>
-    <div class="h-6 border-b border-slate-200 max-w-4xl mx-auto"></div>
-    <hr class="max-w-4xl mx-auto">
-    <div class="h-6 max-w-4xl mx-auto"></div>
+
+    <hr class="max-w-4xl mx-auto my-6">
+
 
     <Birdmover/>
 
@@ -49,7 +49,7 @@
         <br>
         
         <p>
-            I developed a system and wrote custom Python software to solve each of these problems. If you would like to know more about it, don't hesitate to <a href="https://github.com/Struckhour" class="underline" target="_blank">check out the code</a> and/or <a href="/links" target="_blank" class="underline">reach out</a>. The final output includes an image of how two birds (in this case, named 'BBF8' and 'GB1') moved around their territories while singing. Their dots change colour through the rainbow from red to purple as time passes.
+            I developed a system and wrote custom Python software to solve each of these problems. If you would like to know more about it, don't hesitate to <a href="https://github.com/Struckhour/triangulation" class="underline" target="_blank">check out the code</a> and/or <a href="/links" target="_blank" class="underline">reach out</a>. The final output includes an image of how two birds (in this case, named 'BBF8' and 'GB1') moved around their territories while singing. Their dots change colour through the rainbow from red to purple as time passes.
         </p>
         <img alt="a graph of birds moving about in the forest while singing." src={birdlocs} />
         <br>
