@@ -3,14 +3,14 @@
     import { goto } from "$app/navigation";
 </script>
 
-<div class="mt-12 mx-auto max-w-4xl">
+<div class="mt-12 mb-2 mx-auto max-w-4xl">
     <h1 class="text-3xl text-center text-green-950">Luke McLean</h1>
     <h2 class="text-center text-slate-600">problem solver, researcher, software developer, educator</h2>
-    <!-- <hr class="block border-t border-slate-300"> -->
 </div>
-<div class="max-w-2xl mx-auto mt-6 text-lg">
-    <p class="my-4 text-center">
-        Hello! I put this site together to share some of the science research, software, and web development projects that I have worked on in the past few years. Enjoy!
+
+<div class="max-w-2xl mx-auto text-lg">
+    <p class="mb-4 text-center">
+        Welcome! I put this site together to share some of the science research, software, and web development projects that I have worked on in the past few years. Enjoy!
     </p>
     <p class="text-center text-base">
         (If you'd like to contact me: lukecmclean@gmail.com)

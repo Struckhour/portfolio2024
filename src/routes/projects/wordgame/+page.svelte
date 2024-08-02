@@ -10,6 +10,6 @@
         </a>
     </div>
     <p class="indent-4">
-        <a href="https://ent-ris.vercel.app" target="_blank" class="underline">This</a> is just a fun little tetris-meets-scrabble-meets-Tolkien game that I made for those who enjoy such things. In order to be valid, a word must be in the main text of J.R.R Tolkien's 'The Lord of the Rings.' Words that are in the story and are not English words give bonus points and clear the board.
+        <a href="https://ent-ris.vercel.app" target="_blank" class="underline">This</a> is a fun little tetris-meets-scrabble-meets-Tolkien game that I threw together using svelte. In order to be valid, a word must be in the main text of J.R.R Tolkien's 'The Lord of the Rings.' Words that are in the story and are not English words give bonus points and clear the board.
 </div>
 <div class="h-6"></div>
