@@ -321,7 +321,7 @@
     <!-- bird -->
     <img id="bird" alt="a bird" src={birdPic} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none"/>
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-    <div id="birdVeil" role="alert" on:mousedown={() => {birdGrabbed = true; instruct = false}} on:mouseup={() => birdGrabbed = false} on:touchstart={() => {birdGrabbed = true; instruct = false}} on:touchend={() => birdGrabbed = false} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-30 cursor-pointer"></div>
+    <div id="birdVeil" role="alert" on:mousedown={() => {birdGrabbed = true; instruct = false}} on:mouseup={() => birdGrabbed = false} on:touchstart={(event) => {birdGrabbed = true; instruct = false; event.preventDefault();}} on:touchend={() => {birdGrabbed = false; document.body.style.overflow = 'auto';}} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-30 cursor-pointer"></div>
     <!-- sound circle -->
     <div id="soundCircle" class="absolute border border-black rounded-full top-1/4 z-10 -translate-y-2/4 left-1/4 -translate-x-2/4"></div>
 
@@ -359,9 +359,9 @@
     {/if}
 
     {#if instruct}
-    <div class="absolute text-center w-[40%] h-[5%] top-[15%] left-[25%] bg-white -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none -rotate-12 text-blue-900 text-lg">Drag bird with mouse!</div>
+    <div class="absolute text-center w-[40%] h-[5%] top-[15%] left-[25%] bg-white -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none -rotate-12 text-blue-900 text-lg">Drag bird to move!</div>
     {/if}
-    <div class="absolute bottom-0 w-24 left-2/4 -translate-x-2/4 px-2 py-1 bg-white text-xl z-40 border-t border-l border-r border-black">
+    <div class="absolute bottom-0 w-24 left-2/4 -translate-x-2/4 px-2 py-1 bg-white text-lg z-40 border-t border-l border-r border-black">
         <div>{currentTimestamp}</div>
     </div>
 </div>

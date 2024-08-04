@@ -12,7 +12,7 @@
             <li>Move the bird around in the forest pictured below. </li> 
             <li>Press the 'sing' button and watch how the sound from the bird spreads out and hits each microphone at different times.</li>
             <li>The timeline below the forest shows when the sound hits each microphone.</li>
-            <li>See if you can predict where the dots will end up based on where you place the bird.</li>
+            <li>See if you can predict where each coloured dot will end up based on where you place the bird.</li>
             <li>Once you're a pro, read on to find out the point of all this!</li>
         </ul>
         
