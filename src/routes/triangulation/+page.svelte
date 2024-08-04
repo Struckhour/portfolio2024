@@ -56,7 +56,7 @@
         <h2 class="text-lg font-bold">Results</h2>
         <br>
         <p>
-            As of July 2024, I have recorded many birds while they sang and moved about their territories. Now I am analyzing the data. So far the results strongly suggest that neighbouring birds are doing interesting things when they move closer to each other, such as singing faster, interrupting each other, and changing the order of their songs. For example, the graph below shows how one bird orders its songs <i>more predictably</i> as it gets further from its neighbour. Early on in the graph (at the left) it is choosing interesting, unpredictable songs when it is close to its neighbor. Very curious... 
+            As of July 2024, I have recorded 19 birds, for about an hour each, while they sang and moved about their territories. Now I am analyzing the data. So far, the results strongly suggest that neighbouring birds are doing interesting things when they move closer to each other, such as singing faster, interrupting each other, and changing the order of their songs. For example, the graph below shows how one bird orders its songs <i>more predictably</i> as it gets further from its neighbour. Early on in the graph (at the left) it is choosing interesting, unpredictable songs when it is close to its neighbor. Very curious... 
         </p>
         <img alt="a line graph comparing song consistency and distance between birds over time" src={consistency} />
     </div>
