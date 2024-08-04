@@ -321,7 +321,7 @@
     <!-- bird -->
     <img id="bird" alt="a bird" src={birdPic} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none"/>
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-    <div id="birdVeil" role="alert" on:mousedown={() => {birdGrabbed = true; instruct = false}} on:mouseup={() => birdGrabbed = false} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-30 cursor-pointer"></div>
+    <div id="birdVeil" role="alert" on:mousedown={() => {birdGrabbed = true; instruct = false}} on:mouseup={() => birdGrabbed = false} on:touchstart={() => {birdGrabbed = true; instruct = false}} on:touchend={() => birdGrabbed = false} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-30 cursor-pointer"></div>
     <!-- sound circle -->
     <div id="soundCircle" class="absolute border border-black rounded-full top-1/4 z-10 -translate-y-2/4 left-1/4 -translate-x-2/4"></div>
 
