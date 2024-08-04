@@ -176,46 +176,9 @@
 
     	}, 10)
     }
-    
-    let birdVeil: HTMLElement|null = document.getElementById('birdVeil')
-    let isDragging = false;
-    let offsetX = 0;
-    let offsetY = 0;
-    let bird: HTMLElement|null = document.getElementById('bird');
-    let forest: HTMLElement|null = document.getElementById('forest')
-
-    function onTouchStart(event: TouchEvent) {
-    isDragging = true;
-    const touch = event.touches[0];
-    if (birdVeil) {
-        offsetX = touch.clientX - birdVeil.offsetLeft;
-        offsetY = touch.clientY - birdVeil.offsetTop;
-    }
-  }
-
-  function onTouchMove(event: TouchEvent) {
-    if (isDragging) {
-      const touch = event.touches[0];
-      if (birdVeil && bird) {
-          birdVeil.style.left = `${touch.clientX - offsetX}px`;
-          birdVeil.style.top = `${touch.clientY - offsetY}px`;
-          bird.style.left = `${touch.clientX - offsetX}px`;
-          bird.style.top = `${touch.clientY - offsetY}px`;
-      }
-    }
-  }
-
-  function onTouchEnd() {
-    isDragging = false;
-  }
 
     onMount(()=>{
     	resetClock();
-        if (birdVeil) birdVeil.addEventListener("touchstart", onTouchStart);
-        if (forest) {
-            forest.addEventListener("touchmove", onTouchMove);
-            forest.addEventListener("touchend", onTouchEnd);
-        }
     });
     
     onDestroy(()=>{
@@ -257,6 +220,39 @@
             return;
         }
         updateBirdPosition(boxCoords.x, boxCoords.y);
+    }
+
+    function touchMoveBird(event: TouchEvent) {
+        if (!birdGrabbed) return;
+        let boxCoords = getTouchOnBox(event, 'forest');
+        if (boxCoords === undefined) return;
+        if (boxCoords.x > 100 || boxCoords.x < 0 || boxCoords.y > 100 || boxCoords.y < 0) {
+            inBox = false;
+        } else {
+            inBox = true;
+        }
+        
+        if (!inBox) {
+            // replaceBirdPosition()
+            return;
+        }
+        updateBirdPosition(boxCoords.x, boxCoords.y);
+    }
+
+    function getTouchOnBox(event: TouchEvent, id: string) {
+        const touch = event.touches[0];
+        let box = document.getElementById(id);
+        if (!box) {
+            return;
+        }
+        let boxData = box.getBoundingClientRect();
+        m.x = touch.clientX;
+        m.y = touch.clientY;
+        let boxX = m.x - boxData.x;
+        let boxY = m.y - boxData.y;
+        let xPerc = boxX / boxData.width * 100;
+        let yPerc = boxY / boxData.height * 100;
+        return {x: xPerc, y: yPerc};
     }
 
     function getMouseOnBox(event: MouseEvent, id: string) {
@@ -320,7 +316,7 @@
     {/if}
 </div>
 
-<div on:mousemove={moveBird} role="alert" id="forest" class="relative w-screen aspect-square sm:aspect-auto sm:w-[30rem] sm:h-[30rem] mx-auto border border-green-700">
+<div on:mousemove={moveBird} on:touchmove={touchMoveBird} role="alert" id="forest" class="relative w-[95vw] aspect-square sm:aspect-auto sm:w-[30rem] sm:h-[30rem] mx-auto border border-green-700">
     <img id="trees" alt="some sketched trees" src={trees} class="object-cover w-screen aspect-square sm:aspect-auto sm:w-[30rem] sm:h-[30rem] opacity-50 pointer-events-none">
     <!-- bird -->
     <img id="bird" alt="a bird" src={birdPic} class="absolute w-[20%] h-[20%] top-1/4 left-1/4 -translate-y-2/4 -translate-x-2/4 z-20 cursor-pointer pointer-events-none"/>
@@ -371,7 +367,7 @@
 </div>
 
 <!-- timeline with coloured dots -->
-<div class="relative grid grid-rows-[50%_50%] grid-cols-1 left-2/4 -translate-x-2/4 w-[30rem] h-12 mb-4">
+<div class="relative grid grid-rows-[50%_50%] grid-cols-1 left-2/4 -translate-x-2/4 w-[95vw] sm:w-[30rem] h-12 mb-4">
     <div class="relative">
         <div class="absolute left-0 top-2/4 -translate-y-2/4">|</div>
         <div class="absolute left-1/4 top-2/4 -translate-y-2/4 -translate-x-2/4">|</div>
