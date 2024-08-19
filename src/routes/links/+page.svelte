@@ -40,7 +40,7 @@
 <hr class="max-w-2xl mx-auto border border-green-800 my-8">
 <div class="max-w-2xl mx-auto text-xl text-center mb-2 font-bold">Published Research</div>
 <!-- <div class="max-w-2xl mx-auto text-lg text-center mb-2">Science Research</div> -->
-<ul class="max-w-2xl mx-auto text-lg text-center"> 
+<ul class="max-w-2xl mx-auto text-xl text-center"> 
     <li>
         <a href="https://link.springer.com/article/10.1007/s10336-020-01840-2" target="_blank" class="underline">Markov dependencies in the song syntax of Hermit Thrush (Catharus guttatus)</a>
     </li>
