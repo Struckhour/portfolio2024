@@ -22,23 +22,24 @@
 
 <hr class="max-w-2xl mx-auto border border-green-800 my-8">
 <div class="max-w-2xl mx-auto text-xl text-center mb-2 font-bold">Websites by Me</div>
-<ul class="max-w-2xl mx-auto text-xl text-center"> 
+<ul class="max-w-2xl mx-auto text-xl text-center">
+    <li>
+        <a href="https://ent-ris.vercel.app" target="_blank" class="underline">Ent-ris</a>
+    </li>
     <li>
         <a href="https://bulletdrop.netlify.app" target="_blank" class="underline">The Ghost Recon Bulletdrop Compendium</a>
     </li>
     <li>
         <a href="https://katherinemccordpottery.com" target="_blank" class="underline">Katherine McCord Pottery</a>
     </li>
-    <li>
-        <a href="https://ent-ris.vercel.app" target="_blank" class="underline">Ent-ris</a>
-    </li>
+
 
 
 </ul>
 
 <hr class="max-w-2xl mx-auto border border-green-800 my-8">
-<div class="max-w-2xl mx-auto text-xl text-center mb-2 font-bold">Published Works</div>
-<div class="max-w-2xl mx-auto text-lg text-center mb-2">Science Research</div>
+<div class="max-w-2xl mx-auto text-xl text-center mb-2 font-bold">Published Research</div>
+<!-- <div class="max-w-2xl mx-auto text-lg text-center mb-2">Science Research</div> -->
 <ul class="max-w-2xl mx-auto text-lg text-center"> 
     <li>
         <a href="https://link.springer.com/article/10.1007/s10336-020-01840-2" target="_blank" class="underline">Markov dependencies in the song syntax of Hermit Thrush (Catharus guttatus)</a>
@@ -47,7 +48,7 @@
         <a href="https://www.researchgate.net/publication/378995397_Seasonal_changes_in_Hermit_Thrush_Catharus_guttatus_song_syntax" target="_blank" class="underline">Seasonal changes in Hermit Thrush (Catharus guttatus) song syntax</a>
     </li>
 </ul>
-<div class="max-w-2xl mx-auto text-lg text-center my-2">Fiction</div>
+<!-- <div class="max-w-2xl mx-auto text-lg text-center my-2">Fiction</div>
 <ul class="max-w-2xl mx-auto text-lg text-center">
     <li>
         <a href="https://www.amazon.ca/Souls-Last-Host-Chambers-McLean-ebook/dp/B07GMY4WC5" target="_blank" class="underline">The Soul's Last Host</a>
@@ -62,4 +63,4 @@
     <li>
         <a href="https://churchillandchambers.bandcamp.com/album/the-fat-falcon-sessions" target="_blank" class="underline">The Fat Falcon Sessions</a>
     </li>
-</ul>
+</ul> -->
