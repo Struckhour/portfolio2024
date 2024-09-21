@@ -4,7 +4,7 @@
     import Linepoints from './linepoints.svelte';
     const timeHeights = 
         [`top-[19%]`, `top-[39%]`, `top-[56%]`, `top-[75%]`,
-        `top-[15%]`, `top-[33%]`, `top-[50%]`, `top-[73%]`, `top-[90%]`];
+        `top-[15%]`, `top-[27%]`, `top-[38%]`, `top-[55%]`, `top-[73%]`, `top-[90%]`];
     const dotSides = [`-translate-x-[100%]`, `-translate-x-[100%]`, `-translate-x-[100%]`, `-translate-x-[100%]`, 
         ``, ``, ``, ``, ``, 
     ]
@@ -29,14 +29,14 @@
         <div class="absolute top-[2%] left-2/4 -translate-x-2/4 text-lg lg:text-2xl font-bold">Education</div>
         <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[0]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
             <p class="font-bold text-green-900 font-serif tracking-widest">2022-2024</p>
-            <p class="underline">Master's in Research Psychology</p>
+            <p class="underline">Master's in Experimental Psychology</p>
             <p class="text-xs lg:text-base">major focus on coding complex data analysis and machine learning</p>
             <p class="text-xs lg:text-base">-University of New Brunswick-</p>
         </div>
         <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[1]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
             <p class="font-bold text-green-900 font-serif tracking-widest">2022</p>
             <p class="underline">Coding Courses</p>
-            <p class="text-xs lg:text-base">Python, Machine Learning, HTML/CSS, TypeScript, Vue, C#</p>
+            <p class="text-xs lg:text-base">Python, Machine Learning, HTML/CSS, SQL, TypeScript, Vue, C#</p>
             <p class="text-xs lg:text-base">-Codecademy-</p>
         </div>
         <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[2]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
@@ -63,25 +63,31 @@
             <p class="text-xs lg:text-base">-University of New Brunswick-</p>
         </div>
         <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[5]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
+            <p class="font-bold text-green-900 font-serif tracking-widest">2021-2024</p>
+            <p class="underline">Freelance Web Developer</p>
+            <p class="text-xs lg:text-base"></p>
+            <p class="text-xs lg:text-base"></p>
+        </div>
+        <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[6]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
             <p class="font-bold text-green-900 font-serif tracking-widest">2022-2023</p>
             <p class="underline">University Teaching Assistant</p>
             <p class="text-xs lg:text-base">Statistics and Psychology</p>
             <p class="text-xs lg:text-base">-University of New Brunswick-</p>
         </div>
-        <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[6]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
+        <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[7]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
             <p class="font-bold text-green-900 font-serif tracking-widest">2021-2022</p>
             <p class="underline">High School Teacher</p>
             <p class="text-xs lg:text-base">Physics, Chemistry, and Music</p>
             <p class="text-xs lg:text-base">-St. Stephen High School-</p>
         </div>
-        <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[7]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
+        <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[8]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
             <p class="font-bold text-green-900 font-serif tracking-widest">2019</p>
             <p class="underline">Research Assistant</p>
             <p class="text-xs lg:text-base">Data Collection and Analysis</p>
             <p class="text-xs lg:text-base">-University of New Brunswick-</p>
         </div>
-        <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[8]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
-            <p class="font-bold text-green-900 font-serif tracking-widest">2012-Present</p>
+        <div class="absolute text-center w-full px-8 xl:px-8 left-2/4 -translate-x-2/4 -translate-y-2/4 {timeHeights[9]} text-sm lg:text-lg tracking-tighter md:tracking-normal">
+            <p class="font-bold text-green-900 font-serif tracking-widest">2012-2020</p>
             <p class="underline">Piano Teacher</p>
             <p class="text-xs lg:text-base">all ages, styles, and skill levels</p>
             <p class="text-xs lg:text-base">-St. Andrews, NB-</p>

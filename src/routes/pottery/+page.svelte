@@ -11,6 +11,6 @@
       </a>
   </div>
   <p class="mt-2 text-center">
-      A <a href="https://katherinemccordpottery.com" target="_blank" class="underline">website</a> I made for my favourite local potter.
+      A <a href="https://katherinemccordpottery.com" target="_blank" class="underline">website</a> made for my favourite local potter (St. Andrews, NB).
   </p>
 </div>
