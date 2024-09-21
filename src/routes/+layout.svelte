@@ -12,7 +12,7 @@
                 Projects
             </a>
             <a href="/timeline" class={`hover:underline active:text-slate-500 ${path === '/timeline' ? "underline font-medium text-green-950": ""} `}>
-                Timeline/CV
+                CV
             </a>
             <a href="/links" class={`hover:underline active:text-slate-500 ${path === '/links' ? "underline font-medium text-green-950": ""} `}>
                 Links
