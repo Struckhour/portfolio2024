@@ -4,7 +4,7 @@
     import Birdmover from './birdmover.svelte';
 </script>
 
-<div class="max-w-3xl mx-auto mt-6 p-2 text-lg">
+<div class="max-w-5xl mx-auto mt-6 p-2 text-lg">
     <h1 class="text-center text-2xl">Automated Acoustic Triangulation</h1>
     <br>
     <p class="text-center text-2xl text-green-950">Let's play a game!</p>
@@ -29,7 +29,7 @@
     <div class="text-center tracking-wider w-[90%] max-w-4xl m-auto"><b>Since every position has slightly different timings on the recorders, we can use that data to calculate the bird's position in the forest!</b>
     </div>
 
-    <div class="max-w-4xl mx-auto p-2">
+    <div class="max-w-6xl mx-auto p-2">
         <br>
         <h2 class="text-lg font-bold">Sounds easy enough, but...</h2>
         <br>
