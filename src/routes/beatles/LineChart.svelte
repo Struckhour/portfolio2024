@@ -1,56 +1,111 @@
-<script>
+<script lang='ts'>
 	import * as d3 from "d3";
-	// Import axes-components.
-	import AxisY from './AxisY.svelte';
-	import AxisX from './AxisX.svelte';
 
-  // Receive plot data as prop.
-  export let data;
+	import Line from './Line.svelte';
+	import XAxis from './XAxis.svelte';
+	import GridLines from './GridLines.svelte';
+	import Crosshair from './Crosshair.svelte';
+	import Point from './Point.svelte';
+	
+	export let stats;
 
-  const width = 928;
-  const height = 500;
-  
-	const margin = { 
-		top: 10,
-		right: 10,
-		bottom: 20,
-		left: 30	
-	};
+	let hoveredPoint: number | null = null;
 
-  // Declare the x (horizontal position) scale.
-  $: xScale = d3.scaleUtc()
-      .domain(d3.extent(data, d => new Date(d.date)))
-      .range([margin.left, width - margin.right]);
+	const margin = {
+    top: 50,
+    right: 50,
+    bottom: 50,
+    left: 80,
+  };
 
-	// Declare the y (vertical position) scale.
-  $: yScale = d3.scaleLinear()
-      .domain([0, d3.max(data, d => d.close)])
-      .rangeRound([height - margin.bottom, margin.top]);
+	let width = 100;
+  $: height = 0.50 * width;
 
-  // Declare the line generator.
-  const line = d3.line()
-      .x(d => xScale(new Date(d.date)))
-      .y(d => yScale(d.close));
+  $: innerWidth = width - margin.left - margin.right;
+  $: innerHeight = height - margin.top - margin.bottom;
+
+	const xAccessor = d => d.year;
+  const yAccessor = d => d.statistic;
+
+	const bisectX = d3.bisector(xAccessor).left;
+
+	$: xScale = d3
+    .scaleLinear()
+    .domain(d3.extent(stats, xAccessor))
+    .range([0, innerWidth]);
+
+	$: yScale = d3
+    .scaleLinear()
+    .domain([0, d3.max(stats, yAccessor)])
+    .range([innerHeight, 0])
+    .nice();
+
+	$: xAccessorScaled = d => xScale(xAccessor(d));
+  const yAccessorScaled = d => yScale(yAccessor(d));
+
+	const handleMouseMove = event => {
+    const xCoordinate = xScale.invert(event.offsetX - margin.left);
+    const index = bisectX(stats, xCoordinate);
+    hoveredPoint = stats[index - 1];
+  };
+
+  const handleMouseLeave = () => {
+    hoveredPoint = null;
+  };
 </script>
 
-<svg
-  {width}
-  {height}
-  viewBox="0 0 {width} {height}"
-  style:max-width="100%"
-  style:height="auto"
+<div 
+	class="wrapper" 
+	bind:clientWidth={width}
 >
-	<!-- Add the y-axis -->
-	<AxisY {yScale} {width} {margin} />
-	
-	<!-- Add the x-axis -->
-	<AxisX {xScale} {height} {margin} />
+  <svg 
+		role="img"
+    aria-label="line chart that shows the variation of Canada's population between 2000 and 2022" 
+		{width} 
+		{height}
+		on:mousemove={handleMouseMove}
+    on:mouseleave={handleMouseLeave}
+	>
+    <g transform={`translate(${margin.left}, ${margin.top})`}>
+		  <XAxis
+        {xScale}
+				{innerHeight}
+				{hoveredPoint}
+        label="Album Year"
+      />
+			<GridLines
+        {yScale}
+				{innerWidth}
+				{hoveredPoint}
+        label="Unique Words Per Song"
+      />
+      <Line 
+				{stats}
+				{xAccessorScaled}
+				{yAccessorScaled}
+			/>
+			{#if hoveredPoint}
+				<Crosshair
+          xAccessorScaled={xAccessorScaled(hoveredPoint)}
+          yAccessorScaled={yAccessorScaled(hoveredPoint)}
+          xLabel={xAccessor(hoveredPoint)}
+          yLabel={yAccessor(hoveredPoint)}
+					{innerHeight}
+        />
+        <Point
+          x={xAccessorScaled(hoveredPoint)}
+          y={yAccessorScaled(hoveredPoint)}
+          color="#dc267f"
+        />
+      {/if}
+    </g>
+  </svg>
+</div>
 
-	<!-- Add a path for the line. -->
-	<g class="data">
-			<path 
-				fill=none
-				stroke="steelblue"
-				d={line(data)}/>
-	</g>
-</svg>
+<style>
+  .wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+  }
+</style>
