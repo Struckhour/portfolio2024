@@ -76,7 +76,7 @@
         {xScale}
 				{innerHeight}
 				{hoveredPoint}
-        label="Date Album Was Recorded"
+        label="Recording Date"
       />
 			<GridLines
         {yScale}
