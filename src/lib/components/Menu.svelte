@@ -3,13 +3,15 @@
 	import Button from './Button.svelte';
 	import Input from './Input.svelte';
 	export let filterList: string[];
+	import beatlesLyrics from '$lib/beatles_lyrics.json';
 
 	let menuOpen = false;
 	let inputValue = "";
 	$:console.log(inputValue)
 	$:test = 'test';
 
-	const menuItems = ["About", "Base", "Blog", "Contact", "Custom", "Support", "Tools", "Boats", "Cars", "Bikes", "Sheds", "Billygoats", "Zebras", "Tennis Shoes", "New Zealand"];
+	const menuItems = beatlesLyrics['columns'].slice(5, -1);
+	// const menuItems = ["About", "Base", "Blog", "Contact", "you", "Support", "Tools", "Boats", "Cars", "Bikes", "Sheds", "Billygoats", "Zebras", "Tennis Shoes", "New Zealand"];
 	let filteredItems: string[] = [];
 	
 	const handleInput = () => {
