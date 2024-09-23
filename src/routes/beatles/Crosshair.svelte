@@ -8,6 +8,22 @@
       import * as d3 from "d3";
     const formatXLabel = d3.format('.0f');
       const formatYLabel = d3.format(',.1f');
+
+
+      const albums = {
+        1963.2: "Please Please Me",
+        1963.9: "With The Beatles",
+        1964.6: "A Hard Days Night",
+        1964.95: "Beatles For Sale",
+        1965.6: "Help!",
+        1965.93: "Rubber Soul",
+        1966.6: "Revolver",
+        1967.2: "Sgt Peppers Lonely Hearts Club Band",
+        1967.9: "Magical Mystery Tour",
+        1968.5: "The Beatles",
+        1969: "Let It Be",
+        1969.6: "Abbey Road",
+      }
   </script>
   
   <g transform={`translate(${xAccessorScaled} 0)`}>
@@ -25,7 +41,7 @@
       dy="0.8em"
       text-anchor="middle"
     >
-      {formatXLabel(xLabel)}
+      {Math.floor(xLabel)}-{albums[xLabel]}
     </text>
     <line
       class="line-outline"

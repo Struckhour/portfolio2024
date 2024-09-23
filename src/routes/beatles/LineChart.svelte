@@ -24,6 +24,11 @@
   $: innerWidth = width - margin.left - margin.right;
   $: innerHeight = height - margin.top - margin.bottom;
 
+  type Stat = {
+	year: number;
+	statistic: number;
+  }
+
 	const xAccessor = d => d.year;
   const yAccessor = d => d.statistic;
 
@@ -36,7 +41,7 @@
 
 	$: yScale = d3
     .scaleLinear()
-    .domain([0, d3.max(stats, yAccessor)])
+    .domain(d3.extent(stats, yAccessor))
     .range([innerHeight, 0])
     .nice();
 
@@ -71,7 +76,7 @@
         {xScale}
 				{innerHeight}
 				{hoveredPoint}
-        label="Album Year"
+        label="Date Album Was Recorded"
       />
 			<GridLines
         {yScale}
