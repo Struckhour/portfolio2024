@@ -4,8 +4,8 @@
 	export let hoveredPoint;
 	export let label;
 
-	const numberOfTicks = (pixelsAvailable, pixelsPerTick = 140) =>
-    Math.floor(Math.abs(pixelsAvailable) / pixelsPerTick);
+	const numberOfTicks = (pixelsAvailable, pixelsPerTick = 70) =>
+    Math.min(Math.floor(Math.abs(pixelsAvailable) / pixelsPerTick), 6);
 
   $: [xMin, xMax] = xScale.range();
 
