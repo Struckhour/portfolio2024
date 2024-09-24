@@ -1,5 +1,4 @@
 <script lang='ts'>
-	import Link from './Link.svelte';
 	import Button from './Button.svelte';
 	import Input from './Input.svelte';
 	export let filterList: string[];

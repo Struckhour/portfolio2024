@@ -62,7 +62,7 @@
 >
   <svg 
 		role="img"
-    aria-label="line chart that shows the variation of Canada's population between 2000 and 2022" 
+    aria-label="line chart that shows how Beatles lyrics changed over time" 
 		{width} 
 		{height}
 		on:mousemove={handleMouseMove}
