@@ -5,6 +5,6 @@ export const themes = {
     "Ego": ['i', 'me', 'my', 'mine', 'im'],
     "Oneness": ['all', 'together', 'one', 'world', 'universe', 'always', 'forever', 'ever', 'whole'],
     "Masculine": ['man', 'boy', 'he', 'his', 'mr.', 'mister', 'men', 'boys'],
-    "Feminine": ['herself', 'her', 'shes', 'she', 'girl', 'girls', 'girlfriend', 'mistress', 'baby', 'woman', 'women'],
+    "Feminine": ['herself', 'her', 'she', 'she', 'girl', 'girls', 'girlfriend', 'mistress', 'baby', 'woman', 'women'],
     "Travel": ['travelled', 'travelling', 'train', 'car', 'ride', 'road', 'roam', 'go', 'there', 'far', 'going', 'went', 'boat', 'sailed', 'sail', 'sailing', 'ridin', 'riding', 'fly']
 }
