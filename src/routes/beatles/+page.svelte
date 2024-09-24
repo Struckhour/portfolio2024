@@ -89,7 +89,7 @@
     <h1 class="text-center text-2xl">"Love Me Do" to "Goo Goo G'joob"</h1>
     <h2 class="text-center text-xl">The Evolution of Beatles Lyrics</h2>
     <br>
-    <p class="m-auto max-w-3xl mb-4 indent-4">In a few short years, the Beatles went from writing songs about wanting to hold your hand to psychadellics, revolution, and walrus gumboots. Expore these changes in the interactive graph below.</p>
+    <p class="m-auto max-w-3xl mb-4 indent-4">In a few short years, the Beatles went from writing songs about wanting to hold your hand to psychedelics, revolution, and walrus gumboots. Explore these changes in the interactive graph below.</p>
     <p class="max-w-3xl indent-4 text-xl m-auto">Choose from prepared groupings under "Themes" or compare your own custom sets of words under "Words." Let me know if you find any interesting word combinations and I'll add them to the themes list!</p>
     <!-- {albumNames}
     {albumDates} -->
@@ -111,7 +111,7 @@
     {#if (wordFilterList.length == 0)}
     <h3 class="text-xl max-w-3xl m-auto">Word Diversity</h3>
     <p class="max-w-3xl m-auto mt-4 indent-4">
-        We can see that the Beatles gradually increased in lyrical diversity during the early years, with more unique words per song as time passes. Interestingly, word diversity skyrocketed and peaked in the more experimental/psychadellic albums, Sgt. Peppers and Magical Mystery Tour, and then tapered off again in the later albums. I am reminded of some repetitive and lyrically sparse songs later on such as "I Want You" and "Sun King."
+        We can see that the Beatles gradually increased in lyrical diversity during the early years, with more unique words per song as time passes. Interestingly, word diversity skyrocketed and peaked in the more experimental/psychedelic albums, Sgt. Peppers and Magical Mystery Tour, and then tapered off again in the later albums. I am reminded of some repetitive and lyrically sparse songs later on such as "I Want You" and "Sun King."
     </p>
     {/if}
     {#if theme == 'Positivity' && (wordFilterList.length > 0)}
@@ -129,7 +129,7 @@
     {#if theme == 'Ego' && (wordFilterList.length > 0)}
     <h3 class="text-xl max-w-3xl m-auto">Ego</h3>
     <p class="max-w-3xl m-auto mt-4 indent-4">
-        As they embraced psychadellic drugs and Eastern philosophies, their usage of words that refer to one's self decreased dramatically (about 6x less!). It then increased again as some band members passed through this cultural/philosophical phase and they wrote their final two albums, "Let it Be" and "Abbey Road."
+        As they embraced psychedelic drugs and Eastern philosophies, their usage of words that refer to one's self decreased dramatically (about 6x less!). It then increased again as some band members passed through this cultural/philosophical phase and they wrote their final two albums, "Let it Be" and "Abbey Road."
     </p>
     {/if}
     {#if theme == 'Oneness' && (wordFilterList.length > 0)}
