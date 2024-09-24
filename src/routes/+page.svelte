@@ -35,22 +35,30 @@
         A fun little word game
     </button>
 
-    <button on:click={() => goto("/hethfinder")} class="border-2 border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40 text-sm sm:text-lg">
-        ML Birdsong Classifier
+    <button on:click={() => goto("/beatles")} class="border border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40 text-sm sm:text-lg">
+        Beatles Lyrics Analyzer
     </button>
-
+    
     <button on:click={() => goto("/ghost")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full px-4 bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-sm sm:text-lg">
         The Ghost Recon Bulletdrop Compendium
     </button>
+
+    <button on:click={() => goto("/hethfinder")} class="border-2 border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40 text-sm sm:text-lg">
+        ML Birdsong Classifier
+    </button>
     
+    <button on:click={() => goto("/pottery")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full px-4 bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-sm sm:text-lg">
+        A Local Artist's Website
+    </button>
     
     <button on:click={() => goto("/markov")} class="border border-slate-300 hover:border-green-900 hover:border-2 rounded-full px-4 bg-green-800 bg-opacity-30 hover:bg-opacity-40 text-sm sm:text-lg">
         Markov Chains in Animal Communication!
     </button>
 
-    <button on:click={() => goto("/pottery")} class="border border-slate-300 hover:border-blue-900 hover:border-2 rounded-full px-4 bg-blue-800 bg-opacity-30 hover:bg-opacity-40 text-sm sm:text-lg">
-        A Local Artist's Website
-    </button>
+
+
+    <div>
+    </div>
 </div>
     
 
