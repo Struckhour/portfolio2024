@@ -20,7 +20,7 @@
 <style>
   .line {
     fill: none;
-    stroke: #4427ca;
+    stroke: #1a5ec5;
     stroke-width: 3px;
     stroke-linecap: round;
   }

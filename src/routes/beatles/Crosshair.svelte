@@ -31,7 +31,7 @@
       class="text-outline"
       y={innerHeight + 10}
       dy="0.8em"
-      text-anchor="middle"
+      text-anchor={xLabel == 1969.6 ? "end" : "middle"}
     >
       {formatXLabel(xLabel)}
     </text>
@@ -39,7 +39,7 @@
       class="text"
       y={innerHeight + 10}
       dy="0.8em"
-      text-anchor="middle"
+      text-anchor={xLabel == 1969.6 ? "end" : "middle"}
     >
       {Math.floor(xLabel)}-{albums[xLabel]}
     </text>
@@ -99,7 +99,7 @@
     }
   
     .text {
-      fill: #dc267f;
+      fill: #a01357;
     }
   
     .line-outline {
@@ -108,7 +108,7 @@
     }
   
     .line {
-      stroke: #dc267f;
+      stroke: #7c2650;
       stroke-width: 1;
     }
   </style>

@@ -7,7 +7,9 @@
 	import Crosshair from './Crosshair.svelte';
 	import Point from './Point.svelte';
 	
+  export let perc;
 	export let stats;
+  export let title;
 
 	let hoveredPoint: number | null = null;
 
@@ -23,11 +25,6 @@
 
   $: innerWidth = width - margin.left - margin.right;
   $: innerHeight = height - margin.top - margin.bottom;
-
-  type Stat = {
-	year: number;
-	statistic: number;
-  }
 
 	const xAccessor = d => d.year;
   const yAccessor = d => d.statistic;
@@ -82,7 +79,8 @@
         {yScale}
 				{innerWidth}
 				{hoveredPoint}
-        label="Unique Words Per Song"
+        label={title}
+        perc={perc}
       />
       <Line 
 				{stats}
@@ -111,6 +109,6 @@
   .wrapper {
     position: relative;
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
   }
 </style>

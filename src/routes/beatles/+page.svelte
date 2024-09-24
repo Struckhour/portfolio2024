@@ -4,8 +4,8 @@
     import { stats } from './data';
     import Menu from '$lib/components/Menu.svelte';
 
-
-
+    $: perc = false;
+    let yTitle = "Unique Words Per Song"
     const colNum = 5;
     const albumNames = beatlesLyrics['data'].map((data) => {
         return data[0]
@@ -34,13 +34,11 @@
             count++;
         });
 
-        return total / count;
+        return total;
     }
 
     function getMeanSlice(arrayTwoD: number[][], index: number) {
-        console.log("array length: ", arrayTwoD.length)
         const slicedArray = arrayTwoD.map((row) => row[index]);
-        console.log(slicedArray);
         return calculateAverage(slicedArray);
     }
 
@@ -58,30 +56,48 @@
             meanWordPercs.push(getMeanSlice(wordPercs, parseInt(i)))
         }
         if (meanWordPercs.length > 0) {
-
+            perc = true;
             stats.forEach((stat, i) => {
                 stats[i].statistic = Number(meanWordPercs[i])
             }) 
+        } else {
+            stats.forEach((stat, i) => {
+                stats[i].statistic = Number(results[i]);
+            })
+            perc = false;
         }
     }
+
+    $: {
+        if (wordIndexes.length > 0) {
+            yTitle = "Percentage of Selected Words Out of Total Words"
+        } else {
+            yTitle = "Unique Words Per Song"
+        }
+    }
+
 </script>
 
 <div class="max-w-4xl mx-auto mt-6 p-2">
     <h1 class="text-center text-2xl">"Love Me Do" to "Goo Goo G'joob"</h1>
     <h2 class="text-center text-xl">The Evolution of Beatles Lyrics</h2>
     <br>
-    <p>In a few short years, the Beatles went from writing songs about wanting to hold your hand to psychadellics, revolution, and walrus gumboots. As a lifelong Beatles fan, I thought it would be interesting to dive into lyrics from a data science perspective and see if there might be thematic and linguistic trends.</p>
+    <p class="m-auto max-w-3xl mb-4 indent-4">In a few short years, the Beatles went from writing songs about wanting to hold your hand to psychadellics, revolution, and walrus gumboots. As a lifelong Beatles fan, I thought it would be interesting to dive into their lyrics from a data science perspective and see if there might be some thematic and linguistic trends.</p>
+    <p class="max-w-3xl indent-4 text-xl m-auto">Choose from some interesting prepared groupings under "Themes" or compare your own custom sets of words under "Words"</p>
     <!-- {albumNames}
     {albumDates} -->
+
     <Menu bind:filterList={wordFilterList}/>
+
     {#each wordFilterList as word}
         <button class="rounded-lg bg-blue-300 px-2 py-1 mx-1 hover:bg-blue-200 active:bg-blue-100" on:click={() => {wordFilterList = wordFilterList.filter((w) => w != word)}}>x &nbsp {word}</button>
     {/each}
     <div class="flex flex-col items-center">
-        <LineChart {stats} />
+        <LineChart stats={stats} title={yTitle} perc={perc} />
     </div>
-    <p class="max-w-3xl m-auto mt-4">
-        First, we can see that the Beatles gradually increased in lyrical complexity during the early years, with more unique words per song as time passes. Interestingly, this skyrocketed and peaked in the more psychadellic albums, Sgt. Peppers and Magical Mystery Tour, and then tapered off again in the later albums. I am reminded of some repetitive and lyrically sparse songs in the last year such as "I Want You" and "Sun King."
+    <h3 class="text-xl max-w-3xl m-auto">Word Diversity</h3>
+    <p class="max-w-3xl m-auto mt-4 indent-4">
+        We can see that the Beatles gradually increased in lyrical diversity during the early years, with more unique words per song as time passes. Interestingly, word diversity skyrocketed and peaked in the more experimental/psychadellic albums, Sgt. Peppers and Magical Mystery Tour, and then tapered off again in the later albums. I am reminded of some repetitive and lyrically sparse songs later on such as "I Want You" and "Sun King."
     </p>
     <!-- <div class="mx-auto text-center w-48 h-56">
         {beatlesLyrics['columns'][colNum]}

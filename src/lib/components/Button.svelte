@@ -16,4 +16,4 @@
 
 </style>
 
-  <button on:click class="dropbtn rounded-lg hover:bg-green-700 bg-blue-700 focus:bg-green-700">{!menuOpen ? "Words" : "Close"}</button>
+<button on:click class="dropbtn rounded-lg hover:bg-green-800 bg-cyan-700 focus:bg-green-800">{!menuOpen ? "Words" : "Close"}</button>

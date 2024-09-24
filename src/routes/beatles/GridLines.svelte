@@ -5,8 +5,17 @@
 	export let innerWidth;
 	export let hoveredPoint;
   export let label;
+  export let perc;
 
-	const formatTick = d3.format('.2s');
+  let formatTick = d3.format(".1%");
+  $: {
+    if (!perc) {
+      formatTick = d3.format(",.2r");
+    } else {
+      formatTick = d3.format(".1%");
+    }
+  }
+
 
   const numberOfTicks = (pixelsAvailable: number, pixelsPerTick = 60) =>
     Math.floor(Math.abs(pixelsAvailable) / pixelsPerTick);
@@ -31,7 +40,7 @@
         text-anchor="end"
         fill={hoveredPoint ? '#bdc3c7' : '#282828'}
       >
-        {formatTick(tick)}
+        {perc ? formatTick(tick/100) : formatTick(tick)}
       </text>
     </g>
   {/each}
