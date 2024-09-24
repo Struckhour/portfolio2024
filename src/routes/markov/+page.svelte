@@ -26,11 +26,11 @@
     <p>A hermit thrush (seen above) is a forest-dwelling bird known for its beautiful, haunting song. However, what most people hear and think of as a singular repeating
     2-second song is actually slightly different versions being ordered into complex sequences (like words being ordered into sentences).
     It cycles through its 10-15 song-types and chooses the next one based on what it has previously sung.
-    For example, it almost never sings the same song-type in a row.
+    For example, it almost never sings the same song-type twice in a row.
     The question I set out to answer was quite simple:
     </p>
     <br>
-    <div class="text-center tracking-wider w-[90%] m-auto"><b>How many previous songs influence the upcoming song choice? In other words, does a bird care what it recently sang?</b>
+    <div class="text-center tracking-wider w-[90%] m-auto"><b>How many previous songs influence the upcoming song choice? In other words, how much does a bird care what it recently sang?</b>
     </div>
     
     <br>
