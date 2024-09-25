@@ -2,6 +2,8 @@
     import birdlocs from '$lib/jun22-2023.png';
     import consistency from '$lib/consistency.png';
     import Birdmover from './birdmover.svelte';
+	import Youtube from '$lib/components/Youtube.svelte';
+    import heat_map from '$lib/conventional_heat_map.png';
 </script>
 
 <div class="max-w-5xl mx-auto mt-6 p-2 text-lg">
@@ -45,21 +47,40 @@
         <br>
         
         <br>
-        <h2 class="text-lg font-bold">Solutions</h2>
+        <h2 class="text-2xl text-center">Results</h2>
         <br>
         
-        <p>
-            I developed a system and wrote custom Python software to solve each of these problems. If you would like to know more about it, don't hesitate to <a href="https://github.com/Struckhour/triangulation" class="underline" target="_blank">check out the code</a> and/or <a href="/links" target="_blank" class="underline">reach out</a>. The final output includes an image of how two birds (in this case, named 'BBF8' and 'GB1') moved around their territories while singing. Their dots change colour through the rainbow from red to purple as time passes.
+        <p class="indent-4 mb-4">
+            I developed a system and wrote custom Python software to solve each of these problems. If you would like to know more about it, don't hesitate to <a href="https://github.com/Struckhour/triangulation" class="underline" target="_blank">check out the code</a> and/or <a href="/links" target="_blank" class="underline">reach out</a>. The final output can be used to generate a video animation of the birds' singing:
         </p>
-        <img alt="a graph of birds moving about in the forest while singing." src={birdlocs} />
-        <br>
-        <h2 class="text-lg font-bold">Results</h2>
-        <br>
-        <p>
-            As of July 2024, I have recorded 19 birds, for about an hour each, while they sang and moved about their territories. Now I am analyzing the data. So far, the results strongly suggest that neighbouring birds are doing interesting things when they move closer to each other, such as singing faster, interrupting each other, and changing the order of their songs. For example, the graph below shows how one bird orders its songs <i>more predictably</i> as it gets further from its neighbour. Early on in the graph (at the left) it is choosing interesting, unpredictable songs when it is close to its neighbor. Very curious... 
+        <Youtube />
+        <h2 class="text-lg font-bold mt-4">Overlap</h2>
+        <p class="indent-4">
+            This is only a small segment of a 50-minute countersinging bout. Nonetheless, if observed carefully, it demonstrates how the bird in the bottom left (blue) sings more often than its neighbour and frequently interrupts, whereas the bird in the top right (orange) generally avoids interrupting. Though this portion of the bout does not show much movement, these birds also statistically sang more quickly when nearer to each other. Such overlapping dynamics and changes in song rate were observed across many of the birds and 'neighbourhoods' recorded.
         </p>
-        <img alt="a line graph comparing song consistency and distance between birds over time" src={consistency} />
+
+        <h2 class="text-lg font-bold mt-2">Conventional Matching</h2>
+        <p class="indent-4">
+            Most impressively, birds also responded to each other's specific song-types disproportionately, preferring to respond to certain song-types with their own favoured responses. This is known as 'conventional matching' because birds are responding by arbitrary convention rather than by matching some acoustic property, such as similar pitch or song structure. The heat map (below) demonstrates how the focal bird preferentially responded with song 'A' and song 'L' to its neighbour's song 'D'.
+        </p>
+        <img class="mt-2 text-center m-auto" alt="a heat map of a birds favoured responses to its neighbour's songs." src={heat_map} />
+        <p class="indent-4 mt-2">
+
+            Such preferential responses require a bird to learn its neighbour's repertoire. What they are signaling with such responses remains unclear, but it could be an unmistakable way to demonstrate familiarity and attention ("I know you, I know your songs, and I am listening"). It could also be a much more complicated interaction.
+    </p>
+        <p class="indent-4 mt-8">
+            The software can also generate an image of how two birds moved around their territories while singing. Their dots change colour through the rainbow from red to purple as time passes.
+        </p>
+        <img class="mt-2" alt="a graph of birds moving about in the forest while singing." src={birdlocs} />
+        <br>
+        <h2 class="text-lg font-bold">Summary</h2>
+        <br>
+        <p class="indent-4">
+            I recorded 19 birds in 2023 and 2024, for about an hour each, while they sang and moved about their territories. Overall, the results strongly suggest that neighbouring birds are interacting through song and movement. In addition to the above findings, the data showed differences in overlapping rates, singing rates, song-switch rates, and frequency matching rates when birds were near to each other versus far apart. This research also provided the first documented case of two hermit thrushes sharing song-types, and it explored a new type of countersinging in which birds burst into a rapid flurry of soft singing followed by a long period of silence.
+        </p>
+        <!-- <img alt="a line graph comparing song consistency and distance between birds over time" src={consistency} /> -->
     </div>
 
     <div class="h-64 max-w-4xl mx-auto"></div>
+    
 </div>
