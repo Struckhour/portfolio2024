@@ -6,7 +6,8 @@
     import heat_map from '$lib/conventional_heat_map.png';
 </script>
 
-<div class="max-w-5xl mx-auto mt-6 p-2 text-lg">
+<div class="h-20 w-full"></div>
+<div class="max-w-5xl mx-auto p-2 text-lg">
     <h1 class="text-center text-2xl">Automated Acoustic Triangulation</h1>
     <br>
     <p class="text-center text-2xl text-green-950">Let's play a game!</p>

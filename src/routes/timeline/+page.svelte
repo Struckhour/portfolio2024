@@ -17,7 +17,7 @@
 
 
 
-
+<div class="h-20 w-full"></div>
 <div class="absolute w-full h-[1000px] max-w-4xl left-2/4 -translate-x-2/4 bg-slate-100">
     
     <div class="absolute left-2/4 -translate-x-2/4 w-[120px] sm:w-[200px] h-full">

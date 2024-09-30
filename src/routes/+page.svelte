@@ -1,23 +1,21 @@
     
 <script>
     import { goto } from "$app/navigation";
+    import forest from '$lib/forest.jpg';
 </script>
 
-<div class="mt-8 mb-2 mx-auto max-w-4xl">
+<!-- <div class="mt-8 mb-2 mx-auto max-w-4xl">
     <h1 class="text-3xl text-center text-green-950">Luke McLean</h1>
     <h2 class="text-center text-slate-600">problem solver, researcher, software developer, educator</h2>
-</div>
+</div> -->
 
-<div class="max-w-2xl mx-auto text-lg">
-    <p class="mb-4 text-center px-1">
-        Welcome! I put this site together to share some of the science research, software, and web development  that I have worked on in the past few years. Enjoy!
-    </p>
-    <!-- <p class="text-center text-base">
-        (If you'd like to contact me: lukecmclean@gmail.com)
-    </p> -->
-</div>
+<!-- <div class="mt-12 max-w-2xl mx-auto text-lg" style="background-image: url({forest})">
 
-<hr class="border-t border-green-900 max-w-4xl my-4 mx-auto">
+</div> -->
+
+<img alt="a dense forest" src={forest} class="w-full max-h-[600px] object-cover"/>
+
+
 
 <div class="grid grid-cols-2 grid-rows-5 max-w-4xl mx-auto px-1 gap-y-8 gap-x-4">
     <h1 class="text-center text-2xl mt-6">
