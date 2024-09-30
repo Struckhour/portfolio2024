@@ -8,7 +8,7 @@
 
 
 <section class="dropdown">
-  <button class="bg-orange-700 px-4 py-4 rounded-lg text-white" on:click={() => menuOpen = !menuOpen}>Themes</button>
+  <button class="bg-orange-700 px-4 py-4 rounded-lg text-white hover:bg-orange-600 focus:bg-orange-600" on:click={() => menuOpen = !menuOpen}>Themes</button>
 	
   <div id="myDropdown" class:show={menuOpen} class="dropdown-content">		
 
