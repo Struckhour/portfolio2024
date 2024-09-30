@@ -7,6 +7,7 @@
     import noisyheth from '$lib/noisyheth.png';
 </script>
 
+<div class="h-20 w-full"></div>
 <div class="max-w-3xl mx-auto mt-6 p-2 text-lg">
     <h1 class="text-center text-2xl text-green-950 mb-4">Birdsong Detection and Classification</h1>
     <p class="mt-2 indent-4">Birdsong research often involves boxing and selecting a lot of songs on a computer screen&#x2014;sometimes thousands. To aid with this process, I used Python (with tensorflow) to build an image classifier that detects and boxes hermit thrush songs. This involved scraping years of data from our lab, using that data to train a machine learning model, then writing post-processing software to increase the accuracy and convert the output into <a class="underline" target="_blank" href="https://www.birds.cornell.edu/ccb/raven-pro/">Raven</a>  selection tables.</p>

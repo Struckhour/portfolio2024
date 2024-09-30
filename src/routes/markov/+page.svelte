@@ -4,6 +4,7 @@
     import hermit from '$lib/Hermit_thrush_qmnonic.jpg';
 </script>
 
+<div class="h-20 w-full"></div>
 <div class="max-w-2xl mx-auto mt-6 p-2 text-xl text-center">
     <h1 class="text-center text-2xl">Markov Analysis of Birdsong</h1>
     <br>

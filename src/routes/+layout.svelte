@@ -8,18 +8,18 @@
     <!-- nav bar -->
      <div class="fixed items-center w-full pr-20 z-50 h-20 opacity-90 bg-gradient-to-b from-white from-80% to-transparent">
         <div class="float-left flex items-center h-full">
-            <div class="pl-20 grid grid-rows-2 grid-cols-1 gap-2">
-                <div class="text-2xl text-center">
+            <div class="pl-20 grid grid-rows-2 grid-cols-1">
+                <div class="text-2xl text-center flex items-end justify-center">
                     Luke McLean
                 </div>
-                <div>
+                <div class="text-lg flex items-start justify-center">
                     Problem Solver, Researcher, Software Developer, Educator
                 </div>
                 
             </div>
         </div>
         <div class="float-right flex items-center h-full">
-            <div class="grid grid-rows-1 grid-cols-3 gap-12 text-lg max-w-2xl">
+            <div class="grid grid-rows-1 grid-cols-3 gap-12 text-xl max-w-2xl">
                 <a href="/" class={`mx-auto hover:underline active:text-slate-500 ${path === '/' ? "underline font-medium text-green-950": ""} `}>
                     Projects
                 </a>

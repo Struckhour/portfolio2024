@@ -2,6 +2,7 @@
     import ghost from '$lib/breakpoint.jpg';
 </script>
 
+<div class="h-20 w-full"></div>
 <div class="max-w-2xl mx-auto mt-6 p-2 text-xl text-left">
     <h1 class="text-center text-2xl">The Ghost Recon Bulletdrop Compendium</h1>
     <br>
