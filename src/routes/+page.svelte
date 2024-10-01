@@ -7,7 +7,7 @@
     import mug from '$lib/mug.png';
     import spec from '$lib/heth_spec_purple.png';
     import beatlepic from '$lib/beatles peppers.png';
-	import { onMount } from "svelte";
+	import { onDestroy, onMount } from "svelte";
 
     let songBoxDivs: HTMLDivElement[] = [];
     let songBoxLocs = [[1, 40, 3, 40],
@@ -15,7 +15,7 @@
                      [12.8, 52, 3, 30],
                      [19, 6, 3, 50],
                      [24.8, 24, 3, 50],
-                     [31.5, 60, 3, 25],
+                     [31.5, 56, 3, 25],
                      [37.5, 60, 3, 25],
                      [44, 6, 3, 50],
                      [50, 56, 3, 25],
@@ -67,7 +67,17 @@
         specBoxDiv.appendChild(songBox);
     };
 
-    onMount(()=>{
+    let specInterval: ReturnType<typeof setInterval>;
+    let scanLine: HTMLDivElement | undefined;
+
+    onDestroy(() => {
+        clearInterval(specInterval);
+    })
+
+    function restartSpec() {
+        clearInterval(specInterval);
+        songBoxDivs.forEach((div) => div.remove());
+        if (scanLine) scanLine.remove();
     	const specDiv = document.getElementById('specDiv');
         if (!specDiv) {
                 return;
@@ -81,10 +91,10 @@
         const rightEdge = 100 - leftPerc
         let lineLoc = leftPerc;
         
-        const scanLine = createScanLine(leftPerc);
+        scanLine = createScanLine(leftPerc);
         let songIndex = 0;
         let allDone = false;
-        const specInterval = setInterval(() => {
+        specInterval = setInterval(() => {
             if (scanLine) {
                 if (lineLoc < rightEdge) {
                     lineLoc += .2;
@@ -102,10 +112,23 @@
                 scanLine.style.left = `${lineLoc}%`  
             }
         }, 30) 
+    }
+
+    onMount(()=>{
+        window.addEventListener('resize', onResize);
+        restartSpec();
+        return () => window.removeEventListener('resize', onResize);
     });
+
+    function onResize() {
+        restartSpec();
+    }
+
+
 
 </script>
 
+<svelte:window />
 <!-- <div class="mt-8 mb-2 mx-auto max-w-4xl">
     <h1 class="text-3xl text-center text-green-950">Luke McLean</h1>
     <h2 class="text-center text-slate-600">problem solver, researcher, software developer, educator</h2>
@@ -118,8 +141,8 @@
 <!-- triangulation -->
 <div class="relative bg-black">
 
-    <div class="absolute w-full text-5xl z-40 text-white bottom-12 rounded-2xl bg-black bg-opacity-50 px-4 py-2">
-        <div class="text-left ml-[15%]">
+    <div class="absolute w-full text-5xl z-40 text-white bottom-4 lg:bottom-12 rounded-2xl bg-black bg-opacity-50 px-4 py-2">
+        <div class="text-left ml-[15%] text-xl md:text-2xl lg:text-5xl">
             Automated Acoustic Triangulation
         </div>
     </div>
@@ -141,8 +164,8 @@
 
 <div id="specBox" class="relative bg-black">
 
-    <div class="absolute text-5xl z-40 text-white bottom-12 bg-black rounded-2xl px-4 py-2 bg-opacity-50 w-full">
-        <div class="text-right mr-[10%]">
+    <div class="absolute text-5xl z-40 text-white bottom-4 lg:bottom-12 bg-black rounded-2xl px-4 py-2 bg-opacity-50 w-full">
+        <div class="text-right mr-[10%] text-xl md:text-2xl lg:text-5xl">
             Birdsong Detector with Machine Learning
         </div>
     </div>
@@ -163,8 +186,8 @@
 
 <div class="relative">
 
-    <div class="absolute text-5xl z-40 w-full text-white bottom-12 bg-black rounded-2xl px-4 py-2 bg-opacity-50">
-        <div class="text-left ml-[10%]">
+    <div class="absolute text-5xl z-40 w-full text-white bottom-4 lg:bottom-12 bg-black rounded-2xl px-4 py-2 bg-opacity-50">
+        <div class="text-left ml-[10%] text-xl md:text-2xl lg:text-5xl">
             The Ghost Recon Bulletdrop Compendium
         </div>
     </div>
@@ -186,8 +209,8 @@
 
 <div class="relative opacity-90">
 
-    <div class="absolute text-5xl z-40 text-white bottom-12 w-full bg-black rounded-2xl px-4 py-2 bg-opacity-50">
-        <div class="text-right mr-[15%]">
+    <div class="absolute text-5xl z-40 text-white bottom-4 lg:bottom-12 w-full bg-black rounded-2xl px-4 py-2 bg-opacity-50">
+        <div class="text-right mr-[15%] text-xl md:text-2xl lg:text-5xl">
             Beatles Lyrics Over Time
         </div>
     </div>
@@ -196,7 +219,7 @@
 
 <div class="text-center text-2xl mt-4 mb-8">
     <p class="max-w-xl mx-auto my-2">
-        Recently, for fun and out of curiosity, I built an interactive dashboard for checking how beatles' lyrics changed over time.
+        Recently, out of curiosity, I built an interactive dashboard for exploring how beatles' lyrics changed over time.
     </p>
     <button on:click={() => goto("/beatles")} class="border-2 border-green-900 rounded-full px-4 bg-green-900 bg-opacity-20 hover:bg-opacity-60 transition-opacity hover:text-white text-lg sm:text-2xl">
         Check it out
@@ -207,8 +230,8 @@
 
 <div class="relative">
 
-    <div class="absolute text-5xl z-40 text-white bottom-12 w-full bg-black rounded-2xl px-4 py-2 bg-opacity-50">
-        <div class="text-left ml-[10%]">
+    <div class="absolute text-5xl z-40 text-white bottom-4 lg:bottom-12 w-full bg-black rounded-2xl px-4 py-2 bg-opacity-50">
+        <div class="text-left ml-[10%] text-xl md:text-2xl lg:text-5xl">
             Markov Chains in Animal Communication
         </div>
     </div>

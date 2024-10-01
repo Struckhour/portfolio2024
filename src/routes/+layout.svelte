@@ -8,12 +8,12 @@
 <div class="w-full min-h-lvh h-full bg-slate-100">
     <!-- nav bar -->
      <div class="fixed items-center w-full pr-20 z-50 h-20 opacity-80 bg-gradient-to-b text-white from-black from-80% to-transparent">
-        <div class="float-left flex items-center h-full">
+        <div class="float-left hidden lg:flex items-center h-full">
             <button on:click={()=>goto('/')} class="pl-20 grid grid-rows-2 grid-cols-1 hover:cursor-pointer">
                 <div class="text-2xl text-center flex items-end justify-center">
                     Luke McLean
                 </div>
-                <div class="text-lg flex items-start justify-center">
+                <div class="sm:flex hidden text-lg items-start justify-center">
                     Problem Solver, Researcher, Software Developer, Educator
                 </div>
                 
