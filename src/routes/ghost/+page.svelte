@@ -12,7 +12,7 @@
         </a>
     </div>
     <p class="mt-4">
-        A few years ago, HeavyHawk, an avid player of Ghost Recon:Breakpoint (the popular video game) hired me to build a <a href="https://bulletdrop.netlify.app" target="_blank" class="underline">website</a> that could tell players how much their <a href="https://en.wikipedia.org/wiki/External_ballistics" target="_blank" class="underline">bullets would drop as they move through the air.</a> This is no simple question because:
+        A few years ago, HeavyHawk, an fan of the Ghost Recon video game series, hired me to build a <a href="https://bulletdrop.netlify.app" target="_blank" class="underline">website</a> that could tell players how much their <a href="https://en.wikipedia.org/wiki/External_ballistics" target="_blank" class="underline">bullets would drop as they move through the air.</a> This is no simple question because:
         <ol class="mt-2 list-decimal ml-6">
             <li>the game does not obey real-world physics. </li>
             <li>the rifles and attachments do not behave as stated in-game. </li>
