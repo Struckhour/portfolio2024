@@ -77,7 +77,7 @@
         <h2 class="text-lg font-bold">Summary</h2>
         <br>
         <p class="indent-4">
-            I recorded 19 birds in 2023 and 2024, for about an hour each, while they sang and moved about their territories. Overall, the results strongly suggest that neighbouring birds are interacting through song and movement. In addition to the above findings, the data showed differences in overlapping rates, singing rates, song-switch rates, and frequency matching rates when birds were near to each other versus far apart. This research also provided the first documented case of two hermit thrushes sharing song-types, and it explored a new type of countersinging in which birds burst into a rapid flurry of soft singing followed by a long period of silence.
+            I recorded 19 birds in 2023 and 2024, for about an hour each, while they sang and moved about their territories. Overall, the results strongly suggest that neighbouring hermit thrushes are interacting through song and movement. In addition to the above findings, the data showed differences in overlapping rates, singing rates, song-switch rates, and frequency matching rates when birds were near to each other versus far apart. This research also provided the first documented case of two hermit thrushes sharing song-types, and it explored a new type of countersinging in which birds burst into a rapid flurry of soft singing followed by a long period of silence.
         </p>
         <!-- <img alt="a line graph comparing song consistency and distance between birds over time" src={consistency} /> -->
     </div>

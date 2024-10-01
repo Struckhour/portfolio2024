@@ -85,11 +85,13 @@
     let theme = 'Word Diversity (None)';
 </script>
 
+
+<div class="h-20 w-full"></div>
 <div class="max-w-4xl mx-auto mt-6 p-2">
-    <h1 class="text-center text-2xl">"Love Me Do" to "Goo Goo G'joob"</h1>
-    <h2 class="text-center text-xl">The Evolution of Beatles Lyrics</h2>
+    <h1 class="text-center text-2xl text-white py-2 bg-gradient-to-r from-transparent via-slate-700 to-transparent">"Love Me Do" to "Goo Goo G'joob"</h1>
+    <h2 class="text-center text-xl text-white py-2 bg-gradient-to-r from-transparent via-slate-700 to-transparent">The Evolution of Beatles Lyrics</h2>
     <br>
-    <p class="m-auto max-w-3xl mb-4 indent-4">In a few short years, the Beatles went from writing songs about wanting to hold your hand to psychedelics, revolution, and walrus gumboots. Explore these changes in the interactive graph below.</p>
+    <p class="m-auto max-w-xl mb-4 indent-4">In a few short years, the Beatles went from writing songs about wanting to hold your hand to psychedelics, revolution, and walrus gumboots. Explore these changes in the interactive graph below.</p>
     <p class="max-w-3xl indent-4 text-xl m-auto">Choose from prepared groupings under "Themes" or compare your own custom sets of words under "Words." Let me know if you find any interesting word combinations and I'll add them to the themes list!</p>
     <!-- {albumNames}
     {albumDates} -->
