@@ -70,9 +70,52 @@
     let specInterval: ReturnType<typeof setInterval>;
     let scanLine: HTMLDivElement | undefined;
 
+    let forestInterval: ReturnType<typeof setInterval>;
+    let birdCircle: HTMLDivElement | undefined;
+
     onDestroy(() => {
         clearInterval(specInterval);
     })
+
+    function restartForest() {
+        clearInterval(forestInterval);
+        Divs.forEach((div) => div.remove());
+        if (scanLine) scanLine.remove();
+    	const specDiv = document.getElementById('specDiv');
+        if (!specDiv) {
+                return;
+            }
+        const specLoc = specDiv.offsetLeft
+        const specWidth = specDiv.offsetWidth;
+        console.log("specLoc: ", specLoc)
+        console.log("specWidth: ", specWidth);
+        const totalWidth = specLoc + specLoc + specWidth;
+        const leftPerc = specLoc/totalWidth * 100;
+        const rightEdge = 100 - leftPerc
+        let lineLoc = leftPerc;
+        
+        scanLine = createScanLine(leftPerc);
+        let songIndex = 0;
+        let allDone = false;
+        forestInterval = setInterval(() => {
+            if (scanLine) {
+                if (lineLoc < rightEdge) {
+                    lineLoc += .2;
+                    if (lineLoc > (songBoxLocs[songIndex][0] * ((100 - leftPerc * 2)/100) + leftPerc) && !allDone) {
+                        createSongBox(leftPerc, songBoxLocs[songIndex]);
+                        if (songIndex < songBoxLocs.length -1) {songIndex++;}
+                        else {allDone = true;}
+                    }
+                } else {
+                    lineLoc = leftPerc;
+                    songIndex = 0;
+                    allDone = false;
+                    songBoxDivs.forEach((div) => div.remove());
+                }
+                scanLine.style.left = `${lineLoc}%`  
+            }
+        }, 30) 
+    }
 
     function restartSpec() {
         clearInterval(specInterval);
@@ -139,7 +182,7 @@
 </div> -->
 
 <!-- triangulation -->
-<div class="relative bg-black">
+<div id="forestBox" class="relative bg-black">
 
     <div class="absolute w-full text-5xl z-40 text-white bottom-4 lg:bottom-12 rounded-2xl bg-black bg-opacity-50 px-4 py-2">
         <div class="text-left ml-[15%] text-xl md:text-2xl lg:text-5xl">
@@ -147,7 +190,7 @@
         </div>
     </div>
 
-    <img alt="a dense forest" src={forest} class="relative mx-auto w-full max-w-6xl object-scale-down"/>
+    <img id="forestDiv" alt="a dense forest" src={forest} class="relative mx-auto w-full max-w-6xl object-scale-down"/>
 </div>
 
 <div class="text-center text-2xl mt-4 mb-12">
@@ -214,7 +257,7 @@
             Beatles Lyrics Over Time
         </div>
     </div>
-    <img alt="a dense forest" src={beatlepic} class="relative w-full max-h-[600px] object-fit"/>
+    <img alt="a dense forest" src={beatlepic} class="relative w-full max-h-[600px] object-cover"/>
 </div>
 
 <div class="text-center text-2xl mt-4 mb-8">
