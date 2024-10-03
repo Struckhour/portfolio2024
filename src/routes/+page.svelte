@@ -47,7 +47,7 @@
         birdBox.style.top = `29.8%`;
         const leftPercentage = 49.8;
         birdBox.style.left = `${leftPercentage * ((100 - leftPerc * 2)/100) + leftPerc}%`;
-        birdBox.style.border = '#b6ff96 5px solid';
+        birdBox.style.border = '#b6ff96 2px dashed';
         birdBox.style.opacity = '60%';
         // birdBox.style.borderRadius = '100000px';
         birdBox.style.transform = 'translate(-50%, -50%)';
@@ -212,7 +212,7 @@
                     if (micDivB) micDivB.style.width = `${micBWidth}%`;
                 }
                 if (circleSize > 100) {
-                    if (micCWidth < 45) micCWidth += 1;
+                    if (micCWidth < 44) micCWidth += 1;
                     if (micDivC) micDivC.style.width = `${micCWidth}%`;
                 }
                 if (circleSize > 65) {
@@ -301,7 +301,7 @@
                 Automated Acoustic Triangulation
             </div>
         </div>
-
+        <!-- <div class="border border-green-500 top-[29.8%] left-[49.8%] w-12 aspect-square absolute z-50"></div> -->
         <img id="forestDiv" alt="a forest" src={forest} class="relative mx-auto w-full max-w-6xl object-scale-down"/>
     </div>
 </div>
