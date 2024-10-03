@@ -34,6 +34,29 @@
         return circle;
     }
 
+    function createBirdBox(leftPerc: number) {
+        const forestBoxDiv = document.getElementById('forestBox');
+        if (!forestBoxDiv) {
+                return;
+            }
+        const birdBox= document.createElement('div');
+        birdBox.style.position = 'absolute';
+        birdBox.style.width = '4%';
+        // birdBox.style.height = `0%`;
+        birdBox.style.aspectRatio = '1/1';
+        birdBox.style.top = `29.8%`;
+        const leftPercentage = 49.8;
+        birdBox.style.left = `${leftPercentage * ((100 - leftPerc * 2)/100) + leftPerc}%`;
+        birdBox.style.border = '#b6ff96 5px solid';
+        birdBox.style.opacity = '60%';
+        // birdBox.style.borderRadius = '100000px';
+        birdBox.style.transform = 'translate(-50%, -50%)';
+        birdBox.style.display = 'none';
+
+        forestBoxDiv.appendChild(birdBox);
+        return birdBox;
+    }
+
     const micStats: number[][] = [[25, 4, -45], [25, -6, -138], [25, 0, -80], [5, -7, -110]]
 
     function createMicDiv(leftPerc: number, micStat: number[]){
@@ -105,8 +128,6 @@
         if (!specBoxDiv) {
                 return;
             }
-        const specBoxHeight = specBoxDiv.offsetHeight;
-
         const songBox = document.createElement('div');
         songBoxDivs.push(songBox)
         songBox.style.position = 'absolute';
@@ -119,18 +140,16 @@
         specBoxDiv.appendChild(songBox);
     };
 
-
-
     let specInterval: ReturnType<typeof setInterval>;
     let scanLine: HTMLDivElement | undefined;
 
     let forestInterval: ReturnType<typeof setInterval>;
     let birdCircle: HTMLDivElement | undefined;
-    let micDivs: (HTMLDivElement | undefined)[];
     let micDivA: HTMLDivElement | undefined;
     let micDivB: HTMLDivElement | undefined;
     let micDivC: HTMLDivElement | undefined;
     let micDivD: HTMLDivElement | undefined;
+    let birdBox: HTMLDivElement | undefined;
 
     onDestroy(() => {
         clearInterval(specInterval);
@@ -149,22 +168,22 @@
         if (micDivB) micDivB.remove();
         if (micDivC) micDivC.remove();
         if (micDivD) micDivD.remove();
+        if (birdBox) birdBox.remove();
         const totalWidth = forestLoc + forestLoc + forestWidth;
         const leftPerc = forestLoc/totalWidth * 100;
         const rightEdge = 100 - leftPerc;
         let circleSize = 0;
-        const biggestCircle = 200;
+        const biggestCircle = 250;
         let micAWidth = 0;
         let micBWidth = 0;
         let micCWidth = 0;
         let micDWidth = 0;
-        console.log('before push')
         birdCircle = createCircle(leftPerc);
         micDivA = createMicDiv(leftPerc, micStats[0]);
         micDivB = createMicDiv(leftPerc, micStats[1]);
         micDivC = createMicDiv(leftPerc, micStats[2]);
         micDivD = createMicDiv(leftPerc, micStats[3]);
-        console.log('after push');
+        birdBox = createBirdBox(leftPerc);
         forestInterval = setInterval(() => {
             if (birdCircle) {
                 if (circleSize < biggestCircle) {
@@ -182,6 +201,7 @@
                     if(micDivC) micDivC.style.width = `${micCWidth}%`;
                     micDWidth = 0;
                     if(micDivD) micDivD.style.width = `${micDWidth}%`;
+                    if(birdBox) birdBox.style.display = 'none';
                 }
                 if (circleSize > 90) {
                     if (micAWidth < 42) micAWidth += 1;
@@ -198,6 +218,9 @@
                 if (circleSize > 65) {
                     if (micDWidth < 28) micDWidth += .5;
                     if (micDivD) micDivD.style.width = `${micDWidth}%`;
+                }
+                if (circleSize > 150) {
+                    if (birdBox) birdBox.style.display = 'block';
                 }
             }
         }, 15) 
